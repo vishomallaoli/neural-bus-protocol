@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.pyc
+
+# Virtual Environment
+venv/
+.venv/
+
+# macOS system files
+.DS_Store
+Thumbs.db
+
+# Config / secrets
+config.yaml
+.env
+
+# Dataset files (large)
+data/*.csv
+data/*.json
