@@ -46,8 +46,9 @@ Image → ResNet-50 → BUS → LLM → Answer Logits
 ```
 Neural-BUS/
 ├── README.md
+├── setup_env.py
 ├── requirements.txt
-├── config.yaml
+├── example.config.yaml
 ├── assets/                    # Demo images and diagrams
 ├── data/
 │   └── vqa.py        # VQA v2 subset loader
