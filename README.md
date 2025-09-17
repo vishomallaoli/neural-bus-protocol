@@ -82,9 +82,12 @@ Neural-BUS/
 
 ### Environment Setup
 ```bash
-python -m venv .venv && source .venv/bin/activate
-pip install -r requirements.txt
+git clone https://github.com/vishomallaoli/neural-bus-protocol.git
+cd neural-bus-protocol
+python3 setup_env.py
+source venv/bin/activate
 ```
+The `setup_env.py` will install all your requirements.
 
 ### Demo (No Training Required)
 ```bash
