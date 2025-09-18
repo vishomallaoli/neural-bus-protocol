@@ -46,11 +46,12 @@ Image → ResNet-50 → BUS → LLM → Answer Logits
 ```
 Neural-BUS/
 ├── README.md
+├── setup_env.py
 ├── requirements.txt
-├── config.yaml
+├── example.config.yaml
 ├── assets/                    # Demo images and diagrams
 ├── data/
-│   └── vqa_dataset.py        # VQA v2 subset loader
+│   └── vqa.py        # VQA v2 subset loader
 ├── models/
 │   ├── vision_encoder.py     # ResNet-50 backbone
 │   ├── captioner.py          # BLIP-2 captioner
