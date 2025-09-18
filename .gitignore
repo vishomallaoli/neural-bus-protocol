@@ -17,3 +17,6 @@ config.yaml
 # Dataset files (large)
 data/*.csv
 data/*.json
+
+# Secrets
+config.yaml
