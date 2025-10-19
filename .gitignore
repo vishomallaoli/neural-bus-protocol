@@ -1,0 +1,96 @@
+# ===============================================================
+# Neural BUS Research Project — .gitignore
+# ===============================================================
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.log
+
+# --- Build / Packaging ---
+build/
+dist/
+.wheels/
+*.egg-info/
+.eggs/
+pip-wheel-metadata/
+
+# --- Notebooks ---
+*.ipynb
+.ipynb_checkpoints/
+
+# --- Virtual Environments ---
+venv/
+.venv/
+env/
+.env
+.env.*.local
+.python-version
+
+# --- macOS & Windows system files ---
+.DS_Store
+.AppleDouble
+Thumbs.db
+
+# --- Configs / Secrets (keep out of VCS) ---
+secrets.yaml
+secrets/*.yaml
+*.key
+*.pem
+config.local.yaml
+
+# --- Datasets & Large Files ---
+data/coco/
+data/*.zip
+data/*.tar
+data/*.tar.gz
+data/*.tgz
+data/*.csv
+# VQA v2 JSONs (large); mock JSONs are created on the fly anyway
+data/v2_*.json
+data/raw/
+data/tmp/
+data/cache/
+data/vqa_cache/
+data/vqa_test/
+data/vqa_train/
+
+# --- Checkpoints & Weights ---
+checkpoints/
+*.pt
+*.ckpt
+*.safetensors
+
+# --- Results & Intermediate Outputs ---
+results/
+my_packet.json
+test_packet.json
+*.jsonl
+*.npy
+*.npz
+runs/
+tensorboard/
+lightning_logs/
+wandb/
+
+# --- IDE / Editor ---
+.vscode/
+.idea/
+*.code-workspace
+
+# --- Demo & Generated Media ---
+demo_output/
+demo/
+webapp/
+test*.jpg
+assets/demo_images/*
+!assets/demo_images/.gitkeep
+
+# --- Caches ---
+.cache/
+.cache/*
+huggingface/
+hf_cache/
+transformers_cache/

@@ -1,0 +1,96 @@
+# Neural BUS Configuration
+
+# Model Settings
+models:
+  vision:
+    backbone: "resnet50"
+    pretrained: true
+    feature_dim: 2048
+
+  language:
+    name: "mistralai/Mistral-7B-Instruct-v0.1"
+    max_length: 512
+    load_in_8bit: true # For memory efficiency
+
+  teacher:
+    name: "Salesforce/blip2-opt-2.7b"
+    device: "cuda"
+
+# BUS Protocol Settings
+bus:
+  vector_dim: 512
+  text_max_length: 256
+  packet_version: "1.0"
+  compression: false
+
+# Adapter Settings
+adapters:
+  encoder:
+    input_dim: 2048 # ResNet50 feature dim
+    hidden_dim: 1024
+    output_dim: 512 # BUS vector dim
+    num_layers: 3
+    dropout: 0.1
+
+  decoder:
+    input_dim: 512 # BUS vector dim
+    hidden_dim: 1024
+    output_dim: 4096 # LLM embedding dim
+    num_layers: 3
+    dropout: 0.1
+
+# Training Settings
+training:
+  batch_size: 16
+  learning_rate: 1e-4
+  num_epochs: 3
+  warmup_steps: 500
+  weight_decay: 0.01
+  gradient_accumulation_steps: 2
+
+  # Loss weights
+  lambda_kd: 1.0 # Knowledge distillation weight
+  lambda_cycle: 0.1 # Cycle consistency weight
+  temperature: 3.0 # Distillation temperature
+
+  # Checkpointing
+  save_steps: 1000
+  eval_steps: 500
+  logging_steps: 100
+  output_dir: "models/checkpoints"
+
+# Dataset Settings
+dataset:
+  name: "vqa_v2"
+  train_samples: 5000 # Subset for MVP
+  val_samples: 1000
+  test_samples: 1000
+  num_workers: 4
+  cache_dir: "data/cache"
+
+# Evaluation Settings
+evaluation:
+  metrics:
+    - accuracy
+    - cycle_consistency
+    - information_preservation
+  output_dir: "results"
+  save_predictions: true
+
+# System Settings
+system:
+  device: "cuda" # or "cpu"
+  mixed_precision: true
+  seed: 42
+  num_gpus: 1
+
+# Logging Settings
+logging:
+  level: "INFO"
+  wandb:
+    enabled: false
+    project: "neural-bus"
+    entity: null
+  tensorboard:
+    enabled: true
+    log_dir: "results/logs"
