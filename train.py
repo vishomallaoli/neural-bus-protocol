@@ -11,6 +11,7 @@ from torch.utils.data import DataLoader
 from tqdm import tqdm
 import argparse
 from pathlib import Path
+from torchvision.transforms.functional import to_pil_image
 
 from pipeline import NeuralBUSPipeline
 from data.vqa import VQADataset
@@ -86,16 +87,22 @@ class Trainer:
         print(f"✅ Trainer initialized (lr={learning_rate})")
 
     # ============================================================
+
     def get_teacher_logits(self, image, question):
         """Compute BLIP-2 teacher logits (or fallback random)"""
         if not self.use_teacher:
             return torch.randn(1, 50, 32000, device=self.device)
+
+        # Convert tensor -> PIL to avoid double-rescale warning
+        if isinstance(image, torch.Tensor):
+            image = to_pil_image(image.clamp(0, 1))
 
         prompt = f"Question: {question}\nAnswer:"
         inputs = self.teacher_processor(image, text=prompt, return_tensors="pt").to(self.device)
         with torch.no_grad():
             outputs = self.teacher_model(**inputs)
         return outputs.logits  # [1, seq, 32000]
+
 
     # ============================================================
     def align_teacher_logits(self, teacher_logits, student_vocab_size):
@@ -120,49 +127,61 @@ class Trainer:
     def train_step(self, batch):
         self.optimizer.zero_grad()
 
-        images = batch["image"]
+        images = batch["image"]          # batched tensors [B,3,224,224] per your VQADataset
         questions = batch["question"]
 
         teacher_logits_list, student_logits_list = [], []
 
         for img, q in zip(images, questions):
-            teacher_logits = self.get_teacher_logits(img, q)
+            # --- Teacher (BLIP-2) ---
+            teacher_logits = self.get_teacher_logits(img, q)   # [1, Tt, Vt]
             teacher_logits_list.append(teacher_logits.squeeze(0))
 
+            # --- Student (Mistral via BUS adapters) ---
             try:
-                logits = self.pipeline(img, q, return_logits=True)
+                logits = self.pipeline(img, q, return_logits=True)  # [1, Ts, Vs]
             except TypeError:
+                # Fallback shape in case of mock/path issues
                 logits = torch.randn(1, 50, 50304, device=self.device)
             student_logits_list.append(logits.squeeze(0))
 
-        teacher_logits = torch.stack(teacher_logits_list)   # [B, T_t, Vt]
-        student_logits = torch.stack(student_logits_list)   # [B, T_s, Vs]
+        teacher_logits = torch.stack(teacher_logits_list)   # [B, Tt, Vt]
+        student_logits = torch.stack(student_logits_list)   # [B, Ts, Vs]
 
-        # Align vocabularies
+        # Align vocabularies: BLIP-2 (teacher) -> student vocab
         teacher_logits = self.align_teacher_logits(
             teacher_logits, student_logits.size(-1)
-        )
-
-        # ✅ Align sequence lengths before KL divergence
-        min_seq = min(student_logits.size(1), teacher_logits.size(1))
-        if student_logits.size(1) != teacher_logits.size(1):
-            teacher_logits = teacher_logits[:, :min_seq, :]
-            student_logits = student_logits[:, :min_seq, :]
+        )  # now [B, Tt, Vs]
 
         # ---------------------------------------------------
-        # Knowledge Distillation loss
+        # Knowledge Distillation loss (length + dtype aligned)
         # ---------------------------------------------------
-        
-        # Align sequence lengths once
+        import torch.nn.functional as F  # (move to top of file if you prefer)
+
+        # 1) Align sequence lengths ONCE
         seq_len = min(student_logits.size(1), teacher_logits.size(1))
         student_logits = student_logits[:, :seq_len, :]
         teacher_logits = teacher_logits[:, :seq_len, :]
 
-        # Temperature softening
+        # 2) Use float32 for stability (esp. on MPS/FP16)
+        student_logits = student_logits.to(torch.float32)
+        teacher_logits = teacher_logits.to(torch.float32)
+
+        # GUARD against inf/NaN from model forward
+        student_logits = torch.nan_to_num(student_logits, nan=0.0, posinf=50.0, neginf=-50.0)
+        teacher_logits = torch.nan_to_num(teacher_logits, nan=0.0, posinf=50.0, neginf=-50.0)
+
+        student_logits = student_logits.clamp(min=-50.0, max=50.0)
+        teacher_logits = teacher_logits.clamp(min=-50.0, max=50.0)
+
+        # 3) Temperature softening
         temperature = 2.0
-        student_soft = nn.functional.log_softmax(student_logits / temperature, dim=-1)
-        teacher_soft = nn.functional.softmax(teacher_logits / temperature, dim=-1)
-        loss = self.kd_loss(student_soft, teacher_soft) * (temperature ** 2)
+
+        B, T, V = student_logits.shape
+        student_logp = F.log_softmax(student_logits / temperature, dim=-1).view(B * T, V)
+        teacher_p    = F.softmax(teacher_logits  / temperature, dim=-1).view(B * T, V)
+
+        loss = F.kl_div(student_logp, teacher_p, reduction="batchmean") * (temperature ** 2)
 
         loss.backward()
         torch.nn.utils.clip_grad_norm_(
@@ -172,6 +191,7 @@ class Trainer:
         self.optimizer.step()
 
         return loss.item()
+
 
     # ============================================================
     def train_epoch(self, dataloader, epoch):
@@ -210,6 +230,7 @@ def main():
     parser.add_argument("--lr", type=float, default=1e-4)
     parser.add_argument("--subset", type=int, default=10)
     parser.add_argument("--device", type=str, default="cpu")
+    parser.add_argument("--split", type=str, default="train", choices=["train", "val"])
     parser.add_argument("--mock", action="store_true")
     parser.add_argument("--checkpoint-dir", type=str, default="./checkpoints")
 
@@ -224,7 +245,7 @@ def main():
     print(f"Subset: {args.subset}")
 
     print("\nLoading dataset...")
-    dataset = VQADataset(split="train", subset_size=args.subset)
+    dataset = VQADataset(split=args.split, subset_size=args.subset)
     dataloader = DataLoader(dataset, batch_size=args.batch_size, shuffle=True)
 
     print("\nInitializing pipeline...")

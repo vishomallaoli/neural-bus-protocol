@@ -29,25 +29,25 @@ class LanguageModel:
 
         # --- Dtype selection ---
         # Use fp16 on cuda/mps where it’s supported; fp32 on cpu
-        load_dtype = torch.float16 if device in {"cuda", "mps"} else torch.float32
+        dtype = torch.float16 if device == "cuda" else torch.float32
 
         # --- Model ---
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            torch_dtype=load_dtype,
+            torch_dtype=dtype,
             low_cpu_mem_usage=True,
         )
 
         # Always move model to target device *and* dtype explicitly
         # (This helps avoid "placeholder storage not allocated" on MPS.)
-        self.model = self.model.to(self.device, dtype=load_dtype)
+        self.model = self.model.to(self.device)
         self.model.eval()
 
         self.hidden_size = int(self.model.config.hidden_size)
         self.vocab_size = int(self.model.config.vocab_size)
         print(
             f"✅ LLM loaded (hidden_size={self.hidden_size}, "
-            f"vocab_size={self.vocab_size}, device={self.device}, dtype={load_dtype})"
+            f"vocab_size={self.vocab_size}, device={self.device}, dtype={dtype})"
         )
 
     # ------------------------------------------------------------

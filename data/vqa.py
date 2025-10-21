@@ -1,162 +1,165 @@
 """
-VQA v2 Dataset Loader (Fixed + Enhanced)
+VQA v2 Dataset Loader (Tensor output for batching; no auto-download)
+
+- Uses COCO + VQA v2 JSONs if present
+- Falls back to a small mock set otherwise
+- Returns *tensors* shaped [3, 224, 224] so DataLoader's default collate works
+- No normalization here (let VisionEncoder handle it); values in [0,1]
 """
+
+from __future__ import annotations
 
 import json
 from pathlib import Path
-from PIL import Image
-from torch.utils.data import Dataset
 from typing import Optional
-from torchvision import transforms
+
+from PIL import Image
+import torch
+from torch.utils.data import Dataset
+from torchvision import transforms as T
 
 
 class VQADataset(Dataset):
-    """
-    VQA v2 dataset loader
-
-    - If the real dataset is missing, automatically creates mock data.
-    - Converts all images (real or mock) to normalized tensors
-      compatible with torchvision ResNet-50 (3×224×224).
-    """
-
     def __init__(
         self,
         data_dir: str = "./data",
         split: str = "train",
-        subset_size: Optional[int] = None
+        subset_size: Optional[int] = None,
+        images_root: Optional[str] = "./data/coco",
+        strict: bool = False,
     ):
         """
         Args:
-            data_dir: Directory containing VQA data
+            data_dir: directory with VQA JSONs
             split: 'train' or 'val'
-            subset_size: Use only first N samples (for quick testing)
+            subset_size: take first N samples (for quick runs)
+            images_root: root holding COCO images (…/train2014 or …/val2014)
+            strict: if True, raise when files are missing (no mock fallback)
         """
+        assert split in {"train", "val"}, "split must be 'train' or 'val'"
         self.data_dir = Path(data_dir)
         self.split = split
+        self.images_root = Path(images_root) if images_root else None
 
-        # 🔧 Universal transform for all images
-        self.transform = transforms.Compose([
-            transforms.Resize((224, 224)),
-            transforms.ToTensor(),
-            transforms.Normalize(mean=[0.485, 0.456, 0.406],
-                                 std=[0.229, 0.224, 0.225]),
+        # Fixed-size tensor so default_collate can stack into [B,3,224,224]
+        self.to_tensor = T.Compose([
+            T.Resize((224, 224)),  # keep shapes uniform
+            T.ToTensor(),          # [0,1] float32, no mean/std normalization
         ])
 
-        # Expected dataset files
-        questions_file = self.data_dir / f"v2_OpenEnded_mscoco_{split}2014_questions.json"
-        annotations_file = self.data_dir / f"v2_mscoco_{split}2014_annotations.json"
+        # Expected files
+        self.questions_file = self.data_dir / f"v2_OpenEnded_mscoco_{split}2014_questions.json"
+        self.annotations_file = self.data_dir / f"v2_mscoco_{split}2014_annotations.json"
+        self.images_dir = (self.images_root / f"{split}2014") if self.images_root else None
 
-        # Fallback to mock data if missing
-        if not questions_file.exists() or not annotations_file.exists():
-            print(f"⚠️  VQA data not found in {data_dir}")
-            print("Creating mock dataset for testing...")
-            self._create_mock_data()
+        have_json = self.questions_file.exists() and self.annotations_file.exists()
+        have_images = self.images_dir is not None and self.images_dir.exists()
 
-        # Load data
-        self.samples = self._load_data()
+        self.use_mock = not (have_json and have_images)
+        if self.use_mock:
+            missing = []
+            if not have_json:
+                missing += [self.questions_file.name, self.annotations_file.name]
+            if not have_images:
+                missing += [f"{self.split}2014 images under {self.images_root}"]
+            msg = (
+                "⚠️  Real VQA/COCO files not found.\n"
+                f"    Missing: {', '.join(missing)}\n"
+                "    Run: bash scripts/get_vqa_v2.sh data [val|train|both]\n"
+                "    Falling back to a small mock dataset."
+            )
+            if strict:
+                raise FileNotFoundError(msg)
+            else:
+                print(msg)
 
-        # Optional subset for quick tests
+        # Load pairs
+        self.samples = self._load_pairs_mock() if self.use_mock else self._load_pairs_real()
+
         if subset_size:
             self.samples = self.samples[:subset_size]
 
         print(f"✅ Loaded {len(self.samples)} VQA samples ({split})")
 
-    # ------------------------------------------------------------------ #
-    def _create_mock_data(self):
-        """Create mock VQA JSONs for testing if real data missing."""
-        mock_questions = {
-            "questions": [
-                {"image_id": i, "question": f"What is in image {i}?", "question_id": i}
-                for i in range(100)
-            ]
-        }
+    # ---------------- loaders ----------------
+    def _load_pairs_real(self):
+        questions = json.loads(self.questions_file.read_text())["questions"]
+        annotations = json.loads(self.annotations_file.read_text())["annotations"]
+        ann_map = {a["question_id"]: a for a in annotations}
 
-        mock_annotations = {
-            "annotations": [
-                {
-                    "question_id": i,
-                    "image_id": i,
-                    "answers": [{"answer": f"object_{i % 10}"}] * 10
-                }
-                for i in range(100)
-            ]
-        }
-
-        self.data_dir.mkdir(parents=True, exist_ok=True)
-
-        with open(self.data_dir / f"v2_OpenEnded_mscoco_{self.split}2014_questions.json", 'w') as f:
-            json.dump(mock_questions, f)
-
-        with open(self.data_dir / f"v2_mscoco_{self.split}2014_annotations.json", 'w') as f:
-            json.dump(mock_annotations, f)
-
-    # ------------------------------------------------------------------ #
-    def _load_data(self):
-        """Load questions + annotations and merge them."""
-        questions_file = self.data_dir / f"v2_OpenEnded_mscoco_{self.split}2014_questions.json"
-        annotations_file = self.data_dir / f"v2_mscoco_{self.split}2014_annotations.json"
-
-        with open(questions_file) as f:
-            questions = json.load(f)["questions"]
-
-        with open(annotations_file) as f:
-            annotations = json.load(f)["annotations"]
-
-        # Map question_id → annotation
-        ann_map = {ann["question_id"]: ann for ann in annotations}
-
-        # Merge question + annotation
         samples = []
         for q in questions:
-            if q["question_id"] in ann_map:
-                ann = ann_map[q["question_id"]]
-                answers = [a["answer"] for a in ann["answers"]]
-                most_common = max(set(answers), key=answers.count)
-
-                samples.append({
+            ann = ann_map.get(q["question_id"])
+            if ann is None:
+                continue
+            answers = [a["answer"] for a in ann["answers"]]
+            most_common = max(set(answers), key=answers.count) if answers else ""
+            samples.append(
+                {
                     "question_id": q["question_id"],
                     "image_id": q["image_id"],
                     "question": q["question"],
                     "answer": most_common,
-                    "all_answers": answers
-                })
-
+                    "all_answers": answers,
+                }
+            )
         return samples
 
-    # ------------------------------------------------------------------ #
+    def _load_pairs_mock(self):
+        # tiny synthetic set; ensures varied answers/questions
+        return [
+            {
+                "question_id": i,
+                "image_id": i,
+                "question": f"What is in image {i}?",
+                "answer": f"object_{i % 10}",
+                "all_answers": [f"object_{i % 10}"] * 10,
+            }
+            for i in range(100)
+        ]
+
+    # ---------------- utils ----------------
+    def _coco_path(self, image_id: int) -> Optional[Path]:
+        if self.images_dir is None:
+            return None
+        # COCO 2014 naming uses 12-digit zero padding
+        fname = f"COCO_{self.split}2014_{image_id:012d}.jpg"
+        return self.images_dir / fname
+
+    # ---------------- dataset API ----------------
     def __len__(self):
         return len(self.samples)
 
     def __getitem__(self, idx):
-        sample = self.samples[idx]
+        s = self.samples[idx]
 
-        # 🖼️  For mock mode: create dummy gray image
-        #     For real data: you can later replace with actual COCO image loading
-        image = Image.new('RGB', (224, 224), 'gray')
+        if self.use_mock:
+            # deterministic colored block for variety
+            pil = Image.new(
+                "RGB",
+                (256, 256),
+                (30 + (s["image_id"] * 7) % 220, 80, 120),
+            )
+        else:
+            p = self._coco_path(s["image_id"])
+            if p is not None and p.exists():
+                pil = Image.open(p).convert("RGB")
+            else:
+                # rare JSON/image mismatch -> neutral fallback
+                pil = Image.new("RGB", (256, 256), "gray")
 
-        # Convert PIL → Tensor (resized + normalized)
-        image = self.transform(image)
+        img_tensor = self.to_tensor(pil)  # [3,224,224], float32 in [0,1]
 
         return {
-            "image": image,
-            "question": sample["question"],
-            "answer": sample["answer"],
-            "question_id": sample["question_id"],
-            "image_id": sample["image_id"]
+            "image": img_tensor,
+            "question": s["question"],
+            "answer": s["answer"],
+            "question_id": s["question_id"],
+            "image_id": s["image_id"],
         }
 
 
-# ---------------------------------------------------------------------- #
-# Quick test
-# ---------------------------------------------------------------------- #
 if __name__ == "__main__":
-    print("Testing VQA Dataset...")
-
-    dataset = VQADataset(split="train", subset_size=10)
-    sample = dataset[0]
-
-    print("\n✅ Sample 0:")
-    print(f"   Question ID: {sample['question_id']}")
-    print(f"   Question:    {sample['question']}")
-    print(f"   Answer:      {sample['answer']}")
-    print(f"   Image shape: {sample['image'].shape}")  # torch.Size([3, 224, 224])
+    ds = VQADataset(split="val", subset_size=3, strict=False)
+    x = ds[0]
+    print("OK:", tuple(x["image"].shape), x["question"], x["answer"], type(x["image"]))
