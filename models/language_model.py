@@ -12,7 +12,7 @@ class LanguageModel:
 
     def __init__(
         self,
-        model_name: str = "TheBloke/Mistral-7B-Instruct-v0.2-GPTQ",
+        model_name: str = "mistralai/Mistral-7B-v0.1",
         device: str = "cpu",
     ):
         self.device = device

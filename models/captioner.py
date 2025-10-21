@@ -16,7 +16,7 @@ from transformers import Blip2ForConditionalGeneration, Blip2Processor
 class Captioner:
     """BLIP-2 image captioner with safe preprocessing."""
 
-    def __init__(self, model_name: str = "Salesforce/blip2-opt-350m", device: str = "cpu"):
+    def __init__(self, model_name: str = "Salesforce/blip2-flan-t5-large", device: str = "cpu"):
         self.device = device
         self.model_name = model_name
 
