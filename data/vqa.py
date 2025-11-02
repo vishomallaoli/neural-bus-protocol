@@ -13,12 +13,31 @@ import json
 from pathlib import Path
 from typing import Optional
 
-from PIL import Image
 import torch
 from torch.utils.data import Dataset
 from torchvision import transforms as T
+from PIL import Image, ImageFile, ImageOps, UnidentifiedImageError
+
+# Tolerate slightly truncated JPEGs instead of crashing
+ImageFile.LOAD_TRUNCATED_IMAGES = True
 
 
+# ---------- safe image open ----------
+def _safe_open_rgb(path: Path):
+    """
+    Open and fully decode an image safely.
+    Returns a PIL.Image (RGB) on success, or (None, Exception) on failure.
+    """
+    try:
+        with Image.open(path) as im:
+            im = ImageOps.exif_transpose(im)  # respect EXIF orientation
+            im.load()                         # force full decode inside try
+            return im.convert("RGB")
+    except (UnidentifiedImageError, OSError, AssertionError) as e:
+        return None, e
+
+
+# ---------- dataset ----------
 class VQADataset(Dataset):
     def __init__(
         self,
@@ -142,10 +161,20 @@ class VQADataset(Dataset):
             )
         else:
             p = self._coco_path(s["image_id"])
+            pil = None
             if p is not None and p.exists():
-                pil = Image.open(p).convert("RGB")
-            else:
-                # rare JSON/image mismatch -> neutral fallback
+                out = _safe_open_rgb(p)
+                if isinstance(out, tuple):  # (None, error)
+                    pil, err = None, out[1]
+                    # Optional: log once every 500 failures to avoid spam
+                    if getattr(self, "_bad_count", 0) % 500 == 0:
+                        print(f"⚠️  Bad image at {p}: {err}")
+                    self._bad_count = getattr(self, "_bad_count", 0) + 1
+                else:
+                    pil = out
+
+            # rare JSON/image mismatch -> neutral fallback
+            if pil is None:
                 pil = Image.new("RGB", (256, 256), "gray")
 
         img_tensor = self.to_tensor(pil)  # [3,224,224], float32 in [0,1]

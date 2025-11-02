@@ -23,7 +23,7 @@ class Captioner:
         self.processor = Blip2Processor.from_pretrained(model_name)
 
         # fp16 on cuda/mps, fp32 on cpu
-        dtype = torch.float16 if device in {"cuda", "mps"} else torch.float32
+        dtype = torch.float16 if device == "cuda" else torch.float32
         self.model = Blip2ForConditionalGeneration.from_pretrained(
             model_name,
             torch_dtype=dtype,

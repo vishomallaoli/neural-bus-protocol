@@ -12,8 +12,7 @@ class LanguageModel:
 
     def __init__(
         self,
-        model_name: str = "microsoft/phi-2",
-        # model_name: str = "mistralai/Mistral-7B-Instruct-v0.2",
+        model_name: str = "mistralai/Mistral-7B-Instruct-v0.2",
         device: str = "cpu",
     ):
         self.device = device
