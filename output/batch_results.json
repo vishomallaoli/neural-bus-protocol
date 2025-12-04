@@ -1,11 +1,11 @@
 {
   "metadata": {
     "total_samples": 1000,
-    "correct": 788,
-    "accuracy": 78.8,
+    "correct": 790,
+    "accuracy": 79.0,
     "baseline_accuracy": 78.7,
-    "performance_gap": -0.09999999999999432,
-    "processing_time_seconds": 302.43049812316895
+    "performance_gap": -0.29999999999999716,
+    "processing_time_seconds": 288.16219305992126
   },
   "results": [
     {
@@ -439,8 +439,8 @@
       "image_id": 393254,
       "question": "Where is the camping tent?",
       "prediction": "in woods",
-      "ground_truth": "top picture",
-      "correct": false
+      "ground_truth": "woods",
+      "correct": true
     },
     {
       "image_id": 42,
@@ -544,7 +544,7 @@
       "image_id": 393267,
       "question": "Why are some people wearing hats?",
       "prediction": "no hats",
-      "ground_truth": "they are not",
+      "ground_truth": "they aren't",
       "correct": false
     },
     {
@@ -642,8 +642,8 @@
       "image_id": 393271,
       "question": "Is it still snowing in the picture?",
       "prediction": "yes",
-      "ground_truth": "no",
-      "correct": false
+      "ground_truth": "yes",
+      "correct": true
     },
     {
       "image_id": 393271,
@@ -908,15 +908,15 @@
       "image_id": 393282,
       "question": "Are the animals in the wild?",
       "prediction": "no",
-      "ground_truth": "no",
-      "correct": true
+      "ground_truth": "yes",
+      "correct": false
     },
     {
       "image_id": 393282,
       "question": "Why is there a white roofed open pavilion?",
       "prediction": "to provide shade",
-      "ground_truth": "shade",
-      "correct": true
+      "ground_truth": "for shade",
+      "correct": false
     },
     {
       "image_id": 393282,
@@ -1020,7 +1020,7 @@
       "image_id": 393284,
       "question": "What is the person wearing?",
       "prediction": "snowsuit",
-      "ground_truth": "skiing gear",
+      "ground_truth": "ski gear",
       "correct": false
     },
     {
@@ -1216,7 +1216,7 @@
       "image_id": 262228,
       "question": "Why are the bicycles chained?",
       "prediction": "so they don ' t get stolen",
-      "ground_truth": "bike rack",
+      "ground_truth": "locked",
       "correct": false
     },
     {
@@ -1251,8 +1251,8 @@
       "image_id": 262229,
       "question": "What is gliding in the air?",
       "prediction": "soccer ball",
-      "ground_truth": "nothing",
-      "correct": false
+      "ground_truth": "ball",
+      "correct": true
     },
     {
       "image_id": 262229,
@@ -1524,7 +1524,7 @@
       "image_id": 262161,
       "question": "What color is the bike on the right?",
       "prediction": "blue",
-      "ground_truth": "green",
+      "ground_truth": "gray",
       "correct": false
     },
     {
@@ -1573,8 +1573,8 @@
       "image_id": 262161,
       "question": "Does this bike travel often?",
       "prediction": "yes",
-      "ground_truth": "no",
-      "correct": false
+      "ground_truth": "yes",
+      "correct": true
     },
     {
       "image_id": 262161,
@@ -1587,7 +1587,7 @@
       "image_id": 262161,
       "question": "What kind of a show does this look like it is despite the motorcycle?",
       "prediction": "car show",
-      "ground_truth": "car show",
+      "ground_truth": "car",
       "correct": true
     },
     {
@@ -1832,8 +1832,8 @@
       "image_id": 131207,
       "question": "What kind of birds are these?",
       "prediction": "crane",
-      "ground_truth": "crane",
-      "correct": true
+      "ground_truth": "herons",
+      "correct": false
     },
     {
       "image_id": 131207,
@@ -1874,7 +1874,7 @@
       "image_id": 139,
       "question": "What is the woman in the room doing?",
       "prediction": "standing",
-      "ground_truth": "cleaning",
+      "ground_truth": "talking",
       "correct": false
     },
     {
@@ -2091,8 +2091,8 @@
       "image_id": 393372,
       "question": "What type of shirt is the girl wearing?",
       "prediction": "dress shirt",
-      "ground_truth": "dress",
-      "correct": true
+      "ground_truth": "button up",
+      "correct": false
     },
     {
       "image_id": 393372,
@@ -2112,7 +2112,7 @@
       "image_id": 393372,
       "question": "What about this man's appearance might bother a conservative employer?",
       "prediction": "purple hair",
-      "ground_truth": "hair color",
+      "ground_truth": "yes",
       "correct": false
     },
     {
@@ -2140,8 +2140,8 @@
       "image_id": 393372,
       "question": "Is the girl's part in her hair even?",
       "prediction": "no",
-      "ground_truth": "no",
-      "correct": true
+      "ground_truth": "yes",
+      "correct": false
     },
     {
       "image_id": 393372,
@@ -2217,15 +2217,15 @@
       "image_id": 524450,
       "question": "Why is there water on the ground?",
       "prediction": "it rained",
-      "ground_truth": "rain",
+      "ground_truth": "rained",
       "correct": true
     },
     {
       "image_id": 524450,
       "question": "Why does the bus have to stop?",
       "prediction": "to pick up passengers",
-      "ground_truth": "to pick up passengers",
-      "correct": true
+      "ground_truth": "to load passengers",
+      "correct": false
     },
     {
       "image_id": 524450,
@@ -2686,7 +2686,7 @@
       "image_id": 131273,
       "question": "Where is the dog looking at?",
       "prediction": "out window",
-      "ground_truth": "windshield",
+      "ground_truth": "outside",
       "correct": false
     },
     {
@@ -2826,8 +2826,8 @@
       "image_id": 393423,
       "question": "Where is this scene taken?",
       "prediction": "in field",
-      "ground_truth": "africa",
-      "correct": false
+      "ground_truth": "field",
+      "correct": true
     },
     {
       "image_id": 393423,
@@ -2854,8 +2854,8 @@
       "image_id": 131280,
       "question": "How many teams are visible?",
       "prediction": "2",
-      "ground_truth": "1",
-      "correct": false
+      "ground_truth": "2",
+      "correct": true
     },
     {
       "image_id": 131280,
@@ -2938,7 +2938,7 @@
       "image_id": 524502,
       "question": "What is the large pole sticking up for?",
       "prediction": "to hold up tree",
-      "ground_truth": "fishing",
+      "ground_truth": "marker",
       "correct": false
     },
     {
@@ -2966,8 +2966,8 @@
       "image_id": 262360,
       "question": "What kind of flowers?",
       "prediction": "roses",
-      "ground_truth": "carnations",
-      "correct": false
+      "ground_truth": "roses",
+      "correct": true
     },
     {
       "image_id": 262360,
@@ -3659,8 +3659,8 @@
       "image_id": 393469,
       "question": "Are there deciduous trees?",
       "prediction": "no",
-      "ground_truth": "no",
-      "correct": true
+      "ground_truth": "yes",
+      "correct": false
     },
     {
       "image_id": 393469,
@@ -3869,8 +3869,8 @@
       "image_id": 262425,
       "question": "Who is \"riding\" the boat?",
       "prediction": "no one",
-      "ground_truth": "no one",
-      "correct": true
+      "ground_truth": "nobody",
+      "correct": false
     },
     {
       "image_id": 283,
@@ -3911,7 +3911,7 @@
       "image_id": 283,
       "question": "What color is the chair in the background?",
       "prediction": "white",
-      "ground_truth": "tan",
+      "ground_truth": "gray",
       "correct": false
     },
     {
@@ -4086,7 +4086,7 @@
       "image_id": 524577,
       "question": "How long until midnight?",
       "prediction": "9 hours",
-      "ground_truth": "13 hours",
+      "ground_truth": "12 hours",
       "correct": false
     },
     {
@@ -4163,7 +4163,7 @@
       "image_id": 524577,
       "question": "What type of numbers are on the clock?",
       "prediction": "roman numerals",
-      "ground_truth": "normal",
+      "ground_truth": "regular",
       "correct": false
     },
     {
@@ -4716,7 +4716,7 @@
       "image_id": 524611,
       "question": "What does the graffiti on the train say?",
       "prediction": "nothing",
-      "ground_truth": "black rectangle",
+      "ground_truth": "mine",
       "correct": false
     },
     {
@@ -4772,7 +4772,7 @@
       "image_id": 262471,
       "question": "What is sold at the building with the green trim?",
       "prediction": "furniture",
-      "ground_truth": "unknown",
+      "ground_truth": "groceries",
       "correct": false
     },
     {
@@ -4793,8 +4793,8 @@
       "image_id": 262471,
       "question": "Is the street name on top an unusual name for a street?",
       "prediction": "no",
-      "ground_truth": "no",
-      "correct": true
+      "ground_truth": "yes",
+      "correct": false
     },
     {
       "image_id": 262471,
@@ -5101,7 +5101,7 @@
       "image_id": 524621,
       "question": "How many spots on the giraffe are shown?",
       "prediction": "many",
-      "ground_truth": "all",
+      "ground_truth": "531",
       "correct": false
     },
     {
@@ -5388,8 +5388,8 @@
       "image_id": 393569,
       "question": "When is this taken?",
       "prediction": "daytime",
-      "ground_truth": "in morning",
-      "correct": false
+      "ground_truth": "daytime",
+      "correct": true
     },
     {
       "image_id": 393569,
@@ -5521,8 +5521,8 @@
       "image_id": 262505,
       "question": "How many vehicles are shown?",
       "prediction": "10",
-      "ground_truth": "6",
-      "correct": false
+      "ground_truth": "10",
+      "correct": true
     },
     {
       "image_id": 262505,
@@ -5570,15 +5570,15 @@
       "image_id": 393578,
       "question": "How many people can get on the bus?",
       "prediction": "50",
-      "ground_truth": "50",
-      "correct": true
+      "ground_truth": "75",
+      "correct": false
     },
     {
       "image_id": 262509,
       "question": "Are the boats seaworthy?",
       "prediction": "yes",
-      "ground_truth": "no",
-      "correct": false
+      "ground_truth": "yes",
+      "correct": true
     },
     {
       "image_id": 262509,
@@ -6018,7 +6018,7 @@
       "image_id": 524681,
       "question": "Why is it a good idea to use these in an open space?",
       "prediction": "to fly",
-      "ground_truth": "wind",
+      "ground_truth": "not get tangled in anything",
       "correct": false
     },
     {
@@ -6081,7 +6081,7 @@
       "image_id": 397,
       "question": "What toppings are on the pizza?",
       "prediction": "cheese and basil",
-      "ground_truth": "spinach",
+      "ground_truth": "cheese and oregano",
       "correct": false
     },
     {
@@ -6123,8 +6123,8 @@
       "image_id": 524694,
       "question": "Is the giraffe relaxing?",
       "prediction": "yes",
-      "ground_truth": "no",
-      "correct": false
+      "ground_truth": "yes",
+      "correct": true
     },
     {
       "image_id": 524694,
@@ -6284,7 +6284,7 @@
       "image_id": 131497,
       "question": "What does the dog have on his head?",
       "prediction": "bag",
-      "ground_truth": "dog bed",
+      "ground_truth": "bed",
       "correct": false
     },
     {
@@ -6508,7 +6508,7 @@
       "image_id": 524742,
       "question": "What color is the wall?",
       "prediction": "blue yellow red and white",
-      "ground_truth": "yellow",
+      "ground_truth": "blue",
       "correct": true
     },
     {
@@ -6655,8 +6655,8 @@
       "image_id": 262605,
       "question": "What are the black squares for?",
       "prediction": "pictures",
-      "ground_truth": "none",
-      "correct": false
+      "ground_truth": "pictures",
+      "correct": true
     },
     {
       "image_id": 262605,
