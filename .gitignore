@@ -82,7 +82,7 @@ wandb/
 
 # --- Demo & Generated Media ---
 demo_output/
-demo/
+# demo/
 # webapp/
 test*.jpg
 assets/demo_images/*
