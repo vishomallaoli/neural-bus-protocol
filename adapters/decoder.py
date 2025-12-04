@@ -1,100 +1,118 @@
 """
 Decoder Adapter
-Maps BUS packets (512D + text) to LLM inputs (4096D + prompt)
+Maps BUS vectors (512D) to LLM hidden space (llm_dim) and builds prompts.
 """
+
+from __future__ import annotations
+
+import sys
+from pathlib import Path
+from typing import Tuple
 
 import torch
 import torch.nn as nn
-import sys
-from pathlib import Path
 
+# Add project root to path
 sys.path.insert(0, str(Path(__file__).parent.parent))
+
+# If your schema is under bus/schema.py, keep this:
 from bus.schema import BUSPacket
+# If schema.py lives next to this file instead, use:
+# from schema import BUSPacket
 
 
 class DecoderAdapter(nn.Module):
     """
-    BUS → LLM adapter
+    Decoder Adapter
 
-    Projects 512D BUS vectors to 4096D LLM embedding space
-    and formats text into prompts
+    - Input:  BUS vector, shape [512] or [B, 512]
+    - Output: LLM soft prompt embedding, shape [llm_dim] or [B, llm_dim]
+
+    Also provides:
+      - format_prompt(caption, question) → prompt string
+      - prepare(packet, question) → (llm_embedding, prompt)
     """
 
     def __init__(self, bus_dim: int = 512, llm_dim: int = 4096):
+        """
+        Args:
+            bus_dim: dimensionality of BUS vector (default 512)
+            llm_dim: dimensionality of LLM hidden state (e.g. 768 for DistilGPT2)
+        """
         super().__init__()
+        self.bus_dim = int(bus_dim)
+        self.llm_dim = int(llm_dim)
 
-        self.bus_dim = bus_dim
-        self.llm_dim = llm_dim
-
-        hidden_dim = (bus_dim + llm_dim) // 2  # 2304
-
-        self.projection = nn.Sequential(
-            nn.Linear(bus_dim, hidden_dim),
-            nn.LayerNorm(hidden_dim),
-            nn.GELU(),
-            nn.Dropout(0.1),
-            nn.Linear(hidden_dim, llm_dim),
-            nn.LayerNorm(llm_dim),
+        # Simple projection + nonlinearity; can be upgraded to a deeper MLP
+        self.proj = nn.Sequential(
+            nn.Linear(self.bus_dim, self.llm_dim),
+            nn.Tanh(),
         )
 
-        self._init_weights()
-
-    def _init_weights(self):
-        """Xavier initialization"""
-        for m in self.modules():
-            if isinstance(m, nn.Linear):
-                nn.init.xavier_uniform_(m.weight)
-                if m.bias is not None:
-                    nn.init.zeros_(m.bias)
-
+    # ---------------- core forward ----------------
     def forward(self, bus_vector: torch.Tensor) -> torch.Tensor:
         """
-        Project BUS vector to LLM space (grad-preserving)
+        Project BUS vector → LLM hidden-space embedding.
+
         Args:
-            bus_vector: [B, 512] or [512]
+            bus_vector: [bus_dim] or [B, bus_dim]
+
         Returns:
-            llm_embedding: [B, 4096] or [4096]
+            [llm_dim] or [B, llm_dim]
         """
-        return self.projection(bus_vector)
+        x = bus_vector
+        if x.dim() == 1:
+            x = x.unsqueeze(0)  # [1, bus_dim]
 
-    # ---------- NEW: graph-preserving helper for training ----------
-    def forward_tensor(self, bus_tensor: torch.Tensor, question: str) -> torch.Tensor:
+        if x.size(-1) != self.bus_dim:
+            raise ValueError(
+                f"DecoderAdapter expected last dim={self.bus_dim}, "
+                f"got {x.size(-1)}"
+            )
+
+        out = self.proj(x)  # [B, llm_dim]
+        return out if out.size(0) > 1 else out.squeeze(0)
+
+    # ---------------- prompt formatting ----------------
+    def format_prompt(self, caption: str, question: str) -> str:
         """
-        Graph-preserving variant used by the training path.
-        Returns a single-sample soft prompt [4096] (or [B,4096] if input was batched).
+        Build a textual prompt for the LLM given an image caption and question.
+
+        This is used both in:
+          - pipeline.__call__ (inference)
+          - Trainer._format_prompt(...) (training with student-only setup)
         """
-        if bus_tensor.dim() == 1:
-            bus_tensor = bus_tensor.unsqueeze(0)  # [1, 512]
+        parts = []
+        caption = caption.strip()
+        question = question.strip()
 
-        device = next(self.parameters()).device
-        dtype = next(self.parameters()).dtype
-        bus_tensor = bus_tensor.to(device=device, dtype=dtype)
+        if caption:
+            parts.append(f"Image: {caption}")
+        parts.append(f"Question: {question}")
+        parts.append("Answer:")
 
-        soft_prompt = self.forward(bus_tensor)  # [B, 4096]
-        return soft_prompt.squeeze(0)
+        # Space after "Answer:" encourages cleaner generation
+        return "\n".join(parts) + " "
 
-    # ---------- Inference path (packet decode) ----------
-    def format_prompt(self, text: str, question: str) -> str:
-        prompt = f"""[INST] You are a helpful AI assistant answering questions about images.
-
-Image Context: {text}
-
-Question: {question}
-
-Provide a clear, concise answer. [/INST]"""
-        return prompt
-
-    def decode(self, packet: BUSPacket, question: str) -> tuple[torch.Tensor, str]:
+    # ---------------- BUSPacket helper ----------------
+    @torch.no_grad()
+    def prepare(self, packet: BUSPacket, question: str) -> Tuple[torch.Tensor, str]:
         """
-        Complete decoding: BUS packet → LLM inputs (inference-friendly; uses no_grad)
-        Returns: (llm_embedding, formatted_prompt)
+        Convenience utility:
+        BUSPacket + question → (LLM soft prompt embedding, textual prompt)
+
+        Args:
+            packet: BUSPacket containing vector + text
+            question: VQA-style question string
+
+        Returns:
+            (llm_embedding, prompt_str)
         """
-        bus_vector = packet.get_vector()
+        bus_vector = packet.get_vector()  # torch.Tensor [bus_dim]
+        caption = packet.get_text()
 
-        with torch.no_grad():
-            llm_embedding = self.forward(bus_vector)
-
-        prompt = self.format_prompt(packet.get_text(), question)
+        llm_embedding = self.forward(bus_vector)         # [llm_dim]
+        prompt = self.format_prompt(caption, question)   # string
         return llm_embedding, prompt
 
 
@@ -102,9 +120,19 @@ Provide a clear, concise answer. [/INST]"""
 if __name__ == "__main__":
     print("Testing Decoder Adapter...")
 
-    adapter = DecoderAdapter()
+    adapter = DecoderAdapter(bus_dim=512, llm_dim=768)
     print(f"✅ Created adapter ({adapter.bus_dim} → {adapter.llm_dim})")
 
-    bus_vector = torch.randn(512)
-    llm_emb = adapter(bus_vector)
-    print(f"✅ Projection: {bus_vector.shape} → {llm_emb.shape}")
+    # Single vector
+    bus_vec = torch.randn(512)
+    llm_emb = adapter(bus_vec)
+    print(f"✅ Projection (single): {bus_vec.shape} → {llm_emb.shape}")
+
+    # Batch
+    bus_batch = torch.randn(4, 512)
+    llm_batch = adapter(bus_batch)
+    print(f"✅ Projection (batch): {bus_batch.shape} → {llm_batch.shape}")
+
+    # Prompt formatting
+    prompt = adapter.format_prompt("a cat on a mat", "What animal is on the mat?")
+    print("\nPrompt:\n", prompt)

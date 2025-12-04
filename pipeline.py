@@ -29,11 +29,13 @@ class NeuralBUSPipeline:
     Notes:
       - When return_logits=True (training), we SKIP captioning by default to avoid
         loading BLIP-2 twice (teacher + captioner). You can flip this by eagerly
-        loading a Captioner below if you really want captions during KD.
+        loading a Captioner below if you really want captions during training.
     """
 
     def __init__(self, device: str = "cpu", use_mock: bool = False):
-        # Resolve device preference to an actually available backend
+        # ------------------------------------------------------------
+        # Resolve device
+        # ------------------------------------------------------------
         if device == "cuda" and torch.cuda.is_available():
             self.device = "cuda"
         elif device == "mps" and torch.backends.mps.is_available():
@@ -47,43 +49,139 @@ class NeuralBUSPipeline:
         print("Initializing Neural BUS Pipeline")
         print("=" * 60)
 
-        # [1] Vision Encoder
+        # ------------------------------------------------------------
+        # [1/5] Vision Encoder
+        # ------------------------------------------------------------
         print("\n[1/5] Loading Vision Encoder...")
         self.vision_encoder = VisionEncoder(pretrained=True, freeze=True).to(self.device)
         print(f"✅ ResNet-50 loaded (dim={self.vision_encoder.feature_dim})")
 
-        # [2] Captioner (lazy for real model to avoid extra BLIP-2 in training)
+        # ------------------------------------------------------------
+        # [2/5] Captioner (BLIP-2 or mock, lazy-loaded when real)
+        # ------------------------------------------------------------
         print("\n[2/5] Preparing Captioner...")
         if use_mock:
-            self.captioner: Optional[MockCaptioner | Captioner] = MockCaptioner(device=self.device)
+            # In mock mode we can eagerly create a lightweight captioner
+            self.captioner: Optional[MockCaptioner | Captioner] = MockCaptioner(
+                device=self.device
+            )
             print("✅ Mock Captioner ready")
         else:
-            self.captioner = None  # lazy-load on first inference call
+            # Real BLIP-2 captioner is heavy → lazy-load on first inference
+            self.captioner = None
             print("🕒 Will lazy-load BLIP-2 captioner on first inference")
 
-        # [3] Encoder Adapter
+        # ------------------------------------------------------------
+        # [3/5] Encoder Adapter 2048 → 512 (BUS vector)
+        # ------------------------------------------------------------
         print("\n[3/5] Loading Encoder Adapter...")
+        # VisionEncoder.feature_dim is 2048 for ResNet-50
         self.encoder = EncoderAdapter(input_dim=2048, output_dim=512).to(self.device)
         print("✅ Encoder adapter (2048 → 512)")
 
-        # [4] Decoder Adapter
-        print("\n[4/5] Loading Decoder Adapter...")
-        self.decoder = DecoderAdapter(bus_dim=512, llm_dim=4096).to(self.device)
-        print("✅ Decoder adapter (512 → 4096)")
+        # ------------------------------------------------------------
+        # [4/5] Student Language Model (DistilGPT2 or MockLLM)
+        # ------------------------------------------------------------
+        print("\n[4/5] Loading Language Model...")
+        if use_mock:
+            self.llm = MockLLM(device=self.device)
+            # In mock mode we don't need a real tokenizer
+            self.tokenizer = None
+        else:
+            # Use a lightweight student LLM instead of Mistral-7B
+            # DistilGPT2: ~82M params, much faster to run and train adapters with.
+            self.llm = LanguageModel(
+                model_name="gpt2",
+                device=self.device,
+            )
+            # Re-use the tokenizer provided by the LanguageModel wrapper
+            self.tokenizer = self.llm.tokenizer
 
-        # [5] Language Model (student)
-        print("\n[5/5] Loading Language Model...")
-        self.llm = MockLLM(device=self.device) if use_mock else LanguageModel(device=self.device)
+        print(f"✅ Language model loaded (hidden_size={self.llm.hidden_size})")
 
-        # Tokenizer (student) for text path (only needed in non-mock)
-        if not use_mock:
-            self.tokenizer = AutoTokenizer.from_pretrained("mistralai/Mistral-7B-Instruct-v0.2")
-            if self.tokenizer.pad_token is None:
-                self.tokenizer.pad_token = self.tokenizer.eos_token
+        # ------------------------------------------------------------
+        # [5/5] Decoder Adapter 512 → hidden_size
+        # ------------------------------------------------------------
+        print("\n[5/5] Loading Decoder Adapter...")
+        # Map 512D BUS vector into the LLM's hidden dimension (no hard-coded 4096)
+        self.decoder = DecoderAdapter(
+            bus_dim=512,
+            llm_dim=self.llm.hidden_size,
+        ).to(self.device)
+        print(f"✅ Decoder adapter (512 → {self.llm.hidden_size})")
 
         print("\n" + "=" * 60)
         print("Pipeline Ready! 🚀")
         print("=" * 60 + "\n")
+
+    
+    @torch.inference_mode()
+    def answer(
+        self,
+        image: Union[str, Image.Image, torch.Tensor],
+        question: str,
+        max_new_tokens: int = 10,
+    ) -> str:
+        """
+        Run the **student** (BUS + DistilGPT2) for a single image–question pair.
+
+        image:
+            - file path, or
+            - PIL.Image, or
+            - torch.Tensor in one of:
+                [3,H,W], [H,W,3], [1,3,H,W], [B,3,H,W], [B,H,W,3]
+        """
+        # eval modes
+        self.llm.model.eval()
+        self.encoder.eval()
+        self.decoder.eval()
+
+        # 1) Vision → features
+        features = self.vision_encoder.encode(image)   # [2048] or [B,2048]
+        if features.dim() == 1:
+            features = features.unsqueeze(0)           # [1,2048]
+
+        # 2) BUS adapters
+        bus_vec = self.encoder(features)               # [B,512]
+        if bus_vec.dim() == 1:
+            bus_vec = bus_vec.unsqueeze(0)             # just in case
+
+        llm_emb = self.decoder(bus_vec)                # [B,H]
+        if llm_emb.dim() == 1:
+            llm_emb = llm_emb.unsqueeze(0)             # [1,H]
+
+        # 3) Build prompt text (same format as training)
+        prompt = self.decoder.format_prompt("", question)
+        tok = self.llm.tokenizer(prompt, return_tensors="pt").to(self.device)
+        input_ids = tok["input_ids"]                   # [1,T]
+
+        # 4) Token embeddings + soft prompt
+        tok_emb = self.llm.model.get_input_embeddings()(input_ids)  # [1,T,H]
+        tok_emb = tok_emb.to(self.device, dtype=llm_emb.dtype)
+
+        # llm_emb is [1,H] → [1,1,H]
+        soft = llm_emb.unsqueeze(1)                    # [1,1,H]
+        inputs_embeds = torch.cat([soft, tok_emb], dim=1)  # [1,1+T,H]
+
+        # 5) Attention mask (1 for all positions)
+        attn_mask = torch.ones(
+            inputs_embeds.size()[:2],
+            dtype=torch.long,
+            device=self.device,
+        )
+
+        # 6) Generate
+        out = self.llm.model.generate(
+            inputs_embeds=inputs_embeds,
+            attention_mask=attn_mask,
+            max_new_tokens=max_new_tokens,
+            do_sample=False,
+            pad_token_id=self.llm.tokenizer.eos_token_id,
+        )
+
+        # We drop the first token position (corresponding to the soft prompt slot)
+        text = self.llm.tokenizer.decode(out[0, 1:], skip_special_tokens=True)
+        return text.strip()
 
     # ============================================================
     def __call__(

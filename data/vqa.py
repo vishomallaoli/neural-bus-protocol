@@ -61,15 +61,23 @@ class VQADataset(Dataset):
         self.images_root = Path(images_root) if images_root else None
 
         # Fixed-size tensor so default_collate can stack into [B,3,224,224]
-        self.to_tensor = T.Compose([
-            T.Resize((224, 224)),  # keep shapes uniform
-            T.ToTensor(),          # [0,1] float32, no mean/std normalization
-        ])
+        self.to_tensor = T.Compose(
+            [
+                T.Resize((224, 224)),  # keep shapes uniform
+                T.ToTensor(),          # [0,1] float32, no mean/std normalization
+            ]
+        )
 
         # Expected files
-        self.questions_file = self.data_dir / f"v2_OpenEnded_mscoco_{split}2014_questions.json"
-        self.annotations_file = self.data_dir / f"v2_mscoco_{split}2014_annotations.json"
-        self.images_dir = (self.images_root / f"{split}2014") if self.images_root else None
+        self.questions_file = (
+            self.data_dir / f"v2_OpenEnded_mscoco_{split}2014_questions.json"
+        )
+        self.annotations_file = (
+            self.data_dir / f"v2_mscoco_{split}2014_annotations.json"
+        )
+        self.images_dir = (
+            self.images_root / f"{split}2014" if self.images_root else None
+        )
 
         have_json = self.questions_file.exists() and self.annotations_file.exists()
         have_images = self.images_dir is not None and self.images_dir.exists()
@@ -93,9 +101,13 @@ class VQADataset(Dataset):
                 print(msg)
 
         # Load pairs
-        self.samples = self._load_pairs_mock() if self.use_mock else self._load_pairs_real()
+        self.samples = (
+            self._load_pairs_mock() if self.use_mock else self._load_pairs_real()
+        )
 
-        if subset_size:
+        # Optional subset: use only the first N samples when subset_size is positive
+        if subset_size is not None and subset_size > 0:
+            # Simple deterministic subset; for a random subset you could shuffle here.
             self.samples = self.samples[:subset_size]
 
         print(f"✅ Loaded {len(self.samples)} VQA samples ({split})")

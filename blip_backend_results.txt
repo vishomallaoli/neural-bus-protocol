@@ -1,0 +1,70 @@
+NEURAL BUS + BLIP BACKEND RESULTS
+======================================================================
+
+Total Samples: 1000
+Correct: 787
+Accuracy: 78.7%
+
+Sample Results:
+----------------------------------------------------------------------
+
+Sample 0:
+  Q:  Where is he looking?
+  GT: down
+  P:  down
+  ✓:  True
+
+Sample 1:
+  Q:  What are the people in the background doing?
+  GT: watching
+  P:  watching
+  ✓:  True
+
+Sample 2:
+  Q:  What is he on top of?
+  GT: picnic table
+  P:  picnic table
+  ✓:  True
+
+Sample 3:
+  Q:  What website copyrighted the picture?
+  GT: foodiebakercom
+  P:  foodiebakercom
+  ✓:  True
+
+Sample 4:
+  Q:  Is this a creamy soup?
+  GT: no
+  P:  no
+  ✓:  True
+
+Sample 5:
+  Q:  Is this rice noodle soup?
+  GT: yes
+  P:  yes
+  ✓:  True
+
+Sample 6:
+  Q:  What is to the right of the soup?
+  GT: chopsticks
+  P:  chopsticks
+  ✓:  True
+
+Sample 7:
+  Q:  What is the man doing in the street?
+  GT: walking
+  P:  crossing street
+  ✓:  False
+
+Sample 8:
+  Q:  How many photo's can you see?
+  GT: 1
+  P:  1
+  ✓:  True
+
+Sample 9:
+  Q:  What does the truck on the left sell?
+  GT: ice cream
+  P:  ice cream
+  ✓:  True
+

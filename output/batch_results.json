@@ -1,0 +1,7012 @@
+{
+  "metadata": {
+    "total_samples": 1000,
+    "correct": 788,
+    "accuracy": 78.8,
+    "baseline_accuracy": 78.7,
+    "performance_gap": -0.09999999999999432,
+    "processing_time_seconds": 302.43049812316895
+  },
+  "results": [
+    {
+      "image_id": 262148,
+      "question": "Where is he looking?",
+      "prediction": "down",
+      "ground_truth": "down",
+      "correct": true
+    },
+    {
+      "image_id": 262148,
+      "question": "What are the people in the background doing?",
+      "prediction": "watching",
+      "ground_truth": "watching",
+      "correct": true
+    },
+    {
+      "image_id": 262148,
+      "question": "What is he on top of?",
+      "prediction": "picnic table",
+      "ground_truth": "picnic table",
+      "correct": true
+    },
+    {
+      "image_id": 393225,
+      "question": "What website copyrighted the picture?",
+      "prediction": "foodiebakercom",
+      "ground_truth": "foodiebakercom",
+      "correct": true
+    },
+    {
+      "image_id": 393225,
+      "question": "Is this a creamy soup?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393225,
+      "question": "Is this rice noodle soup?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393225,
+      "question": "What is to the right of the soup?",
+      "prediction": "chopsticks",
+      "ground_truth": "chopsticks",
+      "correct": true
+    },
+    {
+      "image_id": 393226,
+      "question": "What is the man doing in the street?",
+      "prediction": "crossing street",
+      "ground_truth": "walking",
+      "correct": false
+    },
+    {
+      "image_id": 393226,
+      "question": "How many photo's can you see?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 393226,
+      "question": "What does the truck on the left sell?",
+      "prediction": "ice cream",
+      "ground_truth": "ice cream",
+      "correct": true
+    },
+    {
+      "image_id": 240301,
+      "question": "Why is there a gap between the roof and wall?",
+      "prediction": "to keep cows in",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 240301,
+      "question": "Is it daylight in this picture?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 240301,
+      "question": "Why is the cow laying down?",
+      "prediction": "tired",
+      "ground_truth": "tired",
+      "correct": true
+    },
+    {
+      "image_id": 131089,
+      "question": "What color is the grass in this picture?",
+      "prediction": "green",
+      "ground_truth": "green",
+      "correct": true
+    },
+    {
+      "image_id": 131089,
+      "question": "Did the batter hit the ball?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131089,
+      "question": "How many are playing ball?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 131089,
+      "question": "Is there a chain link fence in the image?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131089,
+      "question": "Is the boy playing baseball?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Is that a folding chair?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "How many beds?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "What color is the bedspread?",
+      "prediction": "yellow",
+      "ground_truth": "white",
+      "correct": false
+    },
+    {
+      "image_id": 262162,
+      "question": "How many pictures are there?",
+      "prediction": "9",
+      "ground_truth": "7",
+      "correct": false
+    },
+    {
+      "image_id": 262162,
+      "question": "Are these twin mattresses?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "How many sources of light are there?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Is this room decorated for the 1970s?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Are the lights on in this room?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Are the windows big?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "What is the chair made of?",
+      "prediction": "leather",
+      "ground_truth": "leather",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Is this room in someone's home?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Which room is this?",
+      "prediction": "bedroom",
+      "ground_truth": "bedroom",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Is the bed white?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Could this be a hotel room?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Is the bed made?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Are there bed headboards present in the photo?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Is there a mirror in the room?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "What kind of room is this?",
+      "prediction": "bedroom",
+      "ground_truth": "bedroom",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "How many chairs are in the photo?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Is the desk cluttered?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Has the bed been made?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "How many seats are there?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "How many frames are on the wall?",
+      "prediction": "10",
+      "ground_truth": "7",
+      "correct": false
+    },
+    {
+      "image_id": 262162,
+      "question": "What color are the walls?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "Are there any boxes in the room?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262162,
+      "question": "Could this be a multi-purpose room?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "What animal print does that chair resemble?",
+      "prediction": "none",
+      "ground_truth": "none",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "What is behind the foot of the bed?",
+      "prediction": "chair",
+      "ground_truth": "chair",
+      "correct": true
+    },
+    {
+      "image_id": 262162,
+      "question": "What is the size of the bed?",
+      "prediction": "twin",
+      "ground_truth": "queen",
+      "correct": false
+    },
+    {
+      "image_id": 262162,
+      "question": "How many pictures on the wall?",
+      "prediction": "10",
+      "ground_truth": "7",
+      "correct": false
+    },
+    {
+      "image_id": 393243,
+      "question": "Will this kid leave the powdered sugar on his face?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393243,
+      "question": "What is the child eating?",
+      "prediction": "donut",
+      "ground_truth": "donut",
+      "correct": true
+    },
+    {
+      "image_id": 393243,
+      "question": "Is this person wearing a tie?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393243,
+      "question": "What color is the kids hair?",
+      "prediction": "blonde",
+      "ground_truth": "blonde",
+      "correct": true
+    },
+    {
+      "image_id": 262175,
+      "question": "Is the man's tie purple?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262175,
+      "question": "Where was the picture taken of the man?",
+      "prediction": "forest",
+      "ground_truth": "forest",
+      "correct": true
+    },
+    {
+      "image_id": 262175,
+      "question": "What is the man wearing on his head?",
+      "prediction": "hat",
+      "ground_truth": "hat",
+      "correct": true
+    },
+    {
+      "image_id": 262175,
+      "question": "Is this a designer tie?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131108,
+      "question": "Is this photo color?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131108,
+      "question": "Does the door open inward or outward?",
+      "prediction": "outward",
+      "ground_truth": "inward",
+      "correct": false
+    },
+    {
+      "image_id": 131108,
+      "question": "Is there a drainage in the pic?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393254,
+      "question": "What does the sentence on the top say?",
+      "prediction": "this is camping",
+      "ground_truth": "this is camping",
+      "correct": true
+    },
+    {
+      "image_id": 393254,
+      "question": "What kind of vehicle is the RV pulling on the bottom picture?",
+      "prediction": "rv",
+      "ground_truth": "jeep",
+      "correct": false
+    },
+    {
+      "image_id": 393254,
+      "question": "Where is the camping tent?",
+      "prediction": "in woods",
+      "ground_truth": "top picture",
+      "correct": false
+    },
+    {
+      "image_id": 42,
+      "question": "What color are the gym shoes?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 42,
+      "question": "Is there a red sandal here?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 42,
+      "question": "What color is the flip flop?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 131115,
+      "question": "Are there players in the dugout?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131115,
+      "question": "Is the battery looking at the ball?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 131115,
+      "question": "How many people are on the field?",
+      "prediction": "3",
+      "ground_truth": "3",
+      "correct": true
+    },
+    {
+      "image_id": 262189,
+      "question": "How many signs?",
+      "prediction": "5",
+      "ground_truth": "4",
+      "correct": false
+    },
+    {
+      "image_id": 262189,
+      "question": "What color is the Salisbury Rd. sign?",
+      "prediction": "blue",
+      "ground_truth": "white",
+      "correct": false
+    },
+    {
+      "image_id": 262189,
+      "question": "What does the last sign say?",
+      "prediction": "ross st",
+      "ground_truth": "ross st",
+      "correct": true
+    },
+    {
+      "image_id": 393266,
+      "question": "What color is the sign?",
+      "prediction": "red and yellow",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 393266,
+      "question": "Can you turn right or left in the tunnel?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 393266,
+      "question": "What color is the plant?",
+      "prediction": "green",
+      "ground_truth": "green",
+      "correct": true
+    },
+    {
+      "image_id": 393267,
+      "question": "What color is the woman's shirt on the left?",
+      "prediction": "black",
+      "ground_truth": "black",
+      "correct": true
+    },
+    {
+      "image_id": 393267,
+      "question": "What type of beverage is being displayed?",
+      "prediction": "wine",
+      "ground_truth": "wine",
+      "correct": true
+    },
+    {
+      "image_id": 393267,
+      "question": "Why are some people wearing hats?",
+      "prediction": "no hats",
+      "ground_truth": "they are not",
+      "correct": false
+    },
+    {
+      "image_id": 393267,
+      "question": "What kind of event are the people involved in?",
+      "prediction": "wine tasting",
+      "ground_truth": "wine tasting",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "How many skyscrapers are there?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "What is the color of the building in the background?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "Is there a tree in front of the building?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "Is there a person riding a bike?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "Are there lights on in the two buildings?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 262197,
+      "question": "How many stories is the building on the left?",
+      "prediction": "5",
+      "ground_truth": "3",
+      "correct": false
+    },
+    {
+      "image_id": 262197,
+      "question": "Is this a hospital?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 262197,
+      "question": "How many umbrellas do you see?",
+      "prediction": "0",
+      "ground_truth": "0",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "How many colors is the building on the right painted?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "What is on the boy's back walking?",
+      "prediction": "backpack",
+      "ground_truth": "backpack",
+      "correct": true
+    },
+    {
+      "image_id": 262197,
+      "question": "How many modes of transportation are depicted?",
+      "prediction": "1",
+      "ground_truth": "0",
+      "correct": false
+    },
+    {
+      "image_id": 262197,
+      "question": "What color is the building?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 393271,
+      "question": "Is it still snowing in the picture?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 393271,
+      "question": "Does this appear to be a photo of multiple exposures of the black clad snowboarder?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393271,
+      "question": "How many people can you see in the picture?",
+      "prediction": "9",
+      "ground_truth": "8",
+      "correct": false
+    },
+    {
+      "image_id": 262200,
+      "question": "Is this an adult party?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262200,
+      "question": "What is being celebrated?",
+      "prediction": "birthday",
+      "ground_truth": "birthday",
+      "correct": true
+    },
+    {
+      "image_id": 262200,
+      "question": "Who is in front of the cake with candles?",
+      "prediction": "little girl",
+      "ground_truth": "boy",
+      "correct": false
+    },
+    {
+      "image_id": 393274,
+      "question": "What is this vehicle?",
+      "prediction": "train",
+      "ground_truth": "train",
+      "correct": true
+    },
+    {
+      "image_id": 393274,
+      "question": "Can you see the hook up for the train?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393274,
+      "question": "Is this train at the station?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393274,
+      "question": "What is cast?",
+      "prediction": "shadow",
+      "ground_truth": "shadow",
+      "correct": true
+    },
+    {
+      "image_id": 393274,
+      "question": "What is the background metal structure?",
+      "prediction": "train station",
+      "ground_truth": "platform",
+      "correct": false
+    },
+    {
+      "image_id": 393274,
+      "question": "Is there smoke coming out of the train?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393274,
+      "question": "Is this station in a rural setting?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393274,
+      "question": "Are the train tracks clear?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131131,
+      "question": "What type of cat is this?",
+      "prediction": "tabby",
+      "ground_truth": "tabby",
+      "correct": true
+    },
+    {
+      "image_id": 131131,
+      "question": "What is written lg in the pic?",
+      "prediction": "tv",
+      "ground_truth": "monitor",
+      "correct": false
+    },
+    {
+      "image_id": 131131,
+      "question": "How many cats are in the image?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "Are there any tour buses?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "What's the statue of?",
+      "prediction": "clock tower",
+      "ground_truth": "clock tower",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "Are all three cars facing the same direction?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 393277,
+      "question": "What year is the car?",
+      "prediction": "2000",
+      "ground_truth": "2014",
+      "correct": false
+    },
+    {
+      "image_id": 393277,
+      "question": "What color is the sky?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "What time is it on the clock?",
+      "prediction": "5 : 00",
+      "ground_truth": "8:35",
+      "correct": false
+    },
+    {
+      "image_id": 393277,
+      "question": "Are there a lot of people milling around?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "Is the building large?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "How is the weather?",
+      "prediction": "cloudy",
+      "ground_truth": "cloudy",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "What color is the building the background?",
+      "prediction": "white",
+      "ground_truth": "gray",
+      "correct": false
+    },
+    {
+      "image_id": 393277,
+      "question": "What time is it?",
+      "prediction": "6 : 00",
+      "ground_truth": "8:35",
+      "correct": false
+    },
+    {
+      "image_id": 393277,
+      "question": "Does it rain here a lot?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "Which famous landmark appears in the background?",
+      "prediction": "big ben",
+      "ground_truth": "big ben",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "Is that a cake?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "Is this a one way street?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "What color is the dome of the building off in the distance?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 393277,
+      "question": "What is in the tower?",
+      "prediction": "clock",
+      "ground_truth": "clock",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "Is the giraffe a baby?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "How many giraffes are there?",
+      "prediction": "3",
+      "ground_truth": "2",
+      "correct": false
+    },
+    {
+      "image_id": 393282,
+      "question": "Are the animals in the shade?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "How many giraffes can been seen?",
+      "prediction": "3",
+      "ground_truth": "2",
+      "correct": false
+    },
+    {
+      "image_id": 393282,
+      "question": "Are the animals in the wild?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "Why is there a white roofed open pavilion?",
+      "prediction": "to provide shade",
+      "ground_truth": "shade",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "Will these giraffes be eating the grass for dinner?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "Do you see a body of water in the picture?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "What is in front of the giraffe?",
+      "prediction": "tree",
+      "ground_truth": "dirt",
+      "correct": false
+    },
+    {
+      "image_id": 393282,
+      "question": "How many giraffe are pictured?",
+      "prediction": "3",
+      "ground_truth": "2",
+      "correct": false
+    },
+    {
+      "image_id": 393282,
+      "question": "Where do these animals live?",
+      "prediction": "zoo",
+      "ground_truth": "zoo",
+      "correct": true
+    },
+    {
+      "image_id": 393282,
+      "question": "What are these animals?",
+      "prediction": "giraffes",
+      "ground_truth": "giraffes",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "Is this a beach scene?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What kind of object is the kid riding?",
+      "prediction": "snowboard",
+      "ground_truth": "snowboard",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What is the this person doing?",
+      "prediction": "snowboarding",
+      "ground_truth": "snowboarding",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What sport is the man doing?",
+      "prediction": "snowboarding",
+      "ground_truth": "snowboarding",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "Is this man snowboarding?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "Is there any snow on the trees?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "Is this person flying?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "Is this man flying off of the ski slope?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What is the person wearing?",
+      "prediction": "snowsuit",
+      "ground_truth": "skiing gear",
+      "correct": false
+    },
+    {
+      "image_id": 393284,
+      "question": "What is the man doing?",
+      "prediction": "snowboarding",
+      "ground_truth": "snowboarding",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What pattern is painted on the helmet?",
+      "prediction": "none",
+      "ground_truth": "none",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "Is he going to land?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What sport is the man participating in?",
+      "prediction": "snowboarding",
+      "ground_truth": "snowboarding",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What is in the air?",
+      "prediction": "snowboarder",
+      "ground_truth": "snowboarder",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "Does the man have goggles on?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393284,
+      "question": "What color is the man's jacket?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 393288,
+      "question": "What kind of building is this?",
+      "prediction": "church",
+      "ground_truth": "church",
+      "correct": true
+    },
+    {
+      "image_id": 393288,
+      "question": "What color is the dome shaped roof in the back?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 393288,
+      "question": "What color is the church?",
+      "prediction": "red",
+      "ground_truth": "brown",
+      "correct": false
+    },
+    {
+      "image_id": 393288,
+      "question": "Where are the cars?",
+      "prediction": "on street",
+      "ground_truth": "street",
+      "correct": true
+    },
+    {
+      "image_id": 393288,
+      "question": "What is displayed under the triangular dome?",
+      "prediction": "windows",
+      "ground_truth": "windows",
+      "correct": true
+    },
+    {
+      "image_id": 524361,
+      "question": "Where is the bird?",
+      "prediction": "on tire",
+      "ground_truth": "on metal",
+      "correct": false
+    },
+    {
+      "image_id": 524361,
+      "question": "How many birds?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 524361,
+      "question": "What color are the bird's feathers?",
+      "prediction": "gray",
+      "ground_truth": "gray",
+      "correct": true
+    },
+    {
+      "image_id": 74,
+      "question": "Does this dog have a collar?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 74,
+      "question": "Where is the dog laying?",
+      "prediction": "sidewalk",
+      "ground_truth": "sidewalk",
+      "correct": true
+    },
+    {
+      "image_id": 74,
+      "question": "What is the dog doing?",
+      "prediction": "sleeping",
+      "ground_truth": "sleeping",
+      "correct": true
+    },
+    {
+      "image_id": 131152,
+      "question": "Are any of these people wearing a wetsuit?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131152,
+      "question": "How are the waves?",
+      "prediction": "small",
+      "ground_truth": "small",
+      "correct": true
+    },
+    {
+      "image_id": 131152,
+      "question": "How many people are here?",
+      "prediction": "7",
+      "ground_truth": "5",
+      "correct": false
+    },
+    {
+      "image_id": 131152,
+      "question": "Are these people wet?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262227,
+      "question": "Are there pill bottles?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262227,
+      "question": "What kind of sign is above the doorway?",
+      "prediction": "exit",
+      "ground_truth": "exit",
+      "correct": true
+    },
+    {
+      "image_id": 262227,
+      "question": "Is the computer a popular model?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262227,
+      "question": "What color is the ribbon?",
+      "prediction": "purple",
+      "ground_truth": "purple",
+      "correct": true
+    },
+    {
+      "image_id": 262228,
+      "question": "What is the ground made of?",
+      "prediction": "brick",
+      "ground_truth": "bricks",
+      "correct": true
+    },
+    {
+      "image_id": 262228,
+      "question": "Why are the bicycles chained?",
+      "prediction": "so they don ' t get stolen",
+      "ground_truth": "bike rack",
+      "correct": false
+    },
+    {
+      "image_id": 262228,
+      "question": "What type of vehicles are these?",
+      "prediction": "bicycles",
+      "ground_truth": "bikes",
+      "correct": false
+    },
+    {
+      "image_id": 262228,
+      "question": "Are these comfortable chairs?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262228,
+      "question": "Where are these bicycles chained at?",
+      "prediction": "bike rack",
+      "ground_truth": "bike rack",
+      "correct": true
+    },
+    {
+      "image_id": 262228,
+      "question": "What is on the ground?",
+      "prediction": "bikes",
+      "ground_truth": "bricks",
+      "correct": false
+    },
+    {
+      "image_id": 262229,
+      "question": "What is gliding in the air?",
+      "prediction": "soccer ball",
+      "ground_truth": "nothing",
+      "correct": false
+    },
+    {
+      "image_id": 262229,
+      "question": "What sport are the girls playing?",
+      "prediction": "soccer",
+      "ground_truth": "soccer",
+      "correct": true
+    },
+    {
+      "image_id": 262229,
+      "question": "Are the girls professionals?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262229,
+      "question": "How many babies are there?",
+      "prediction": "0",
+      "ground_truth": "0",
+      "correct": true
+    },
+    {
+      "image_id": 262229,
+      "question": "Are these men or women?",
+      "prediction": "women",
+      "ground_truth": "women",
+      "correct": true
+    },
+    {
+      "image_id": 262229,
+      "question": "What are on the girls heads?",
+      "prediction": "headbands",
+      "ground_truth": "headbands",
+      "correct": true
+    },
+    {
+      "image_id": 262229,
+      "question": "What game are they playing?",
+      "prediction": "soccer",
+      "ground_truth": "soccer",
+      "correct": true
+    },
+    {
+      "image_id": 131159,
+      "question": "Where is the bear sitting?",
+      "prediction": "on floor",
+      "ground_truth": "car floor",
+      "correct": false
+    },
+    {
+      "image_id": 131159,
+      "question": "Is the bear real?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131159,
+      "question": "What is the color of the bear?",
+      "prediction": "yellow",
+      "ground_truth": "yellow",
+      "correct": true
+    },
+    {
+      "image_id": 262235,
+      "question": "What type of facial expression does the woman have?",
+      "prediction": "smile",
+      "ground_truth": "smile",
+      "correct": true
+    },
+    {
+      "image_id": 262235,
+      "question": "What covers the window?",
+      "prediction": "curtain",
+      "ground_truth": "curtain",
+      "correct": true
+    },
+    {
+      "image_id": 262235,
+      "question": "What color are the woman's nails?",
+      "prediction": "white",
+      "ground_truth": "clear",
+      "correct": false
+    },
+    {
+      "image_id": 262235,
+      "question": "What does the woman have around her neck?",
+      "prediction": "lanyard",
+      "ground_truth": "lanyard",
+      "correct": true
+    },
+    {
+      "image_id": 262235,
+      "question": "Who is smiling?",
+      "prediction": "woman",
+      "ground_truth": "woman",
+      "correct": true
+    },
+    {
+      "image_id": 262235,
+      "question": "Is this a woman or man?",
+      "prediction": "woman",
+      "ground_truth": "woman",
+      "correct": true
+    },
+    {
+      "image_id": 262235,
+      "question": "What is the girl doing?",
+      "prediction": "talking on phone",
+      "ground_truth": "talking on phone",
+      "correct": true
+    },
+    {
+      "image_id": 524382,
+      "question": "What brand of dogs are these?",
+      "prediction": "beagle",
+      "ground_truth": "beagles",
+      "correct": true
+    },
+    {
+      "image_id": 524382,
+      "question": "What is keeping the dogs from running away?",
+      "prediction": "fence",
+      "ground_truth": "fence",
+      "correct": true
+    },
+    {
+      "image_id": 524382,
+      "question": "Are all the dogs looking in the same direction?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262242,
+      "question": "What is the women's racket touching?",
+      "prediction": "ground",
+      "ground_truth": "ball",
+      "correct": false
+    },
+    {
+      "image_id": 262242,
+      "question": "What is stretched across the court?",
+      "prediction": "net",
+      "ground_truth": "net",
+      "correct": true
+    },
+    {
+      "image_id": 262242,
+      "question": "Does the man enjoy tennis?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262242,
+      "question": "What color is the court?",
+      "prediction": "green",
+      "ground_truth": "green",
+      "correct": true
+    },
+    {
+      "image_id": 262242,
+      "question": "Are the players tired?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 262242,
+      "question": "Is the court blue?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262242,
+      "question": "Is he playing doubles?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262242,
+      "question": "Are both men wearing hats?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262242,
+      "question": "Are these two men professional tennis players?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131171,
+      "question": "Is this bread?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131171,
+      "question": "How many bins?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 131171,
+      "question": "Does this look like a healthy meal?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "How many exhaust pipes are shown in this photo?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "Is the silver bike new?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "Is the grass bright green?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "What is the bike on?",
+      "prediction": "grass",
+      "ground_truth": "grass",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "Why is there a number on this vehicle?",
+      "prediction": "it is on display",
+      "ground_truth": "model number",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "Why is there a number on the vehicle?",
+      "prediction": "it is on display",
+      "ground_truth": "750",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "Who is the maker of the scooter?",
+      "prediction": "ducati",
+      "ground_truth": "ducati",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "What color is the bike on the right?",
+      "prediction": "blue",
+      "ground_truth": "green",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "Does the bike in the foreground have a single or a double seat?",
+      "prediction": "single",
+      "ground_truth": "single",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "Is the blue container on the ground blocking the motorcycle?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "What is that white thing behind the motorcyclist?",
+      "prediction": "car",
+      "ground_truth": "car",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "What color is the bike?",
+      "prediction": "silver",
+      "ground_truth": "silver",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "How many wheels do you see?",
+      "prediction": "5",
+      "ground_truth": "4",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "How is this red bike called?",
+      "prediction": "motorcycle",
+      "ground_truth": "motorcycle",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "Does this bike travel often?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "What color is the seat?",
+      "prediction": "black",
+      "ground_truth": "black",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "What kind of a show does this look like it is despite the motorcycle?",
+      "prediction": "car show",
+      "ground_truth": "car show",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "Is this motorcycle propped up?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262161,
+      "question": "What number is on the motorcycle?",
+      "prediction": "1100",
+      "ground_truth": "750",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "What make is the bike?",
+      "prediction": "honda",
+      "ground_truth": "ducati",
+      "correct": false
+    },
+    {
+      "image_id": 262161,
+      "question": "Are both motorbikes the same size?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524392,
+      "question": "What color is the fridge?",
+      "prediction": "silver",
+      "ground_truth": "silver",
+      "correct": true
+    },
+    {
+      "image_id": 524392,
+      "question": "Is the light on?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 524392,
+      "question": "What is this appliance used for?",
+      "prediction": "keeping food cold",
+      "ground_truth": "refrigeration",
+      "correct": false
+    },
+    {
+      "image_id": 262262,
+      "question": "Is the time correct?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262262,
+      "question": "Is it an overcast day?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262262,
+      "question": "What type of building is this?",
+      "prediction": "clock tower",
+      "ground_truth": "clock tower",
+      "correct": true
+    },
+    {
+      "image_id": 393338,
+      "question": "What  2 colors are the flowers?",
+      "prediction": "red and yellow",
+      "ground_truth": "red and yellow",
+      "correct": true
+    },
+    {
+      "image_id": 393338,
+      "question": "What kind of flowers are in the vase?",
+      "prediction": "tulips",
+      "ground_truth": "tulips",
+      "correct": true
+    },
+    {
+      "image_id": 393338,
+      "question": "What color is the vase?",
+      "prediction": "clear",
+      "ground_truth": "clear",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "Who left their surfboard?",
+      "prediction": "lifeguard",
+      "ground_truth": "lifeguard",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "What is written on the surfboard?",
+      "prediction": "lifeguard",
+      "ground_truth": "lifeguard",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "What is written on the board?",
+      "prediction": "lifeguard",
+      "ground_truth": "lifeguard",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "How many boards are there?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "Is it going to rain?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "Is it low tide?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "Are there palm trees on the board?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262274,
+      "question": "Is it cloudy?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262275,
+      "question": "How old is the girl?",
+      "prediction": "5",
+      "ground_truth": "6",
+      "correct": false
+    },
+    {
+      "image_id": 262275,
+      "question": "What color is the horse?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 262275,
+      "question": "Is the girl sitting on the horse correctly?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262275,
+      "question": "Is this an English saddle?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262275,
+      "question": "What is on the little girls head?",
+      "prediction": "helmet",
+      "ground_truth": "helmet",
+      "correct": true
+    },
+    {
+      "image_id": 133,
+      "question": "What color is lamp?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 133,
+      "question": "Is this a child room?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 133,
+      "question": "What size mattress would you need for this bed?",
+      "prediction": "twin",
+      "ground_truth": "twin",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "How many birds?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "How many birds can be seen?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "Are the birds legs touching the water?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "Does the water look calm?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "What color are the birds?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "What kind of birds are these?",
+      "prediction": "crane",
+      "ground_truth": "crane",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "What color is the bench?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 131207,
+      "question": "Are this flamingos?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 136,
+      "question": "Is this in a museum?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 136,
+      "question": "How many animals are in the picture?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 136,
+      "question": "What kind of animal is shown?",
+      "prediction": "giraffe",
+      "ground_truth": "giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 139,
+      "question": "What is the woman in the room doing?",
+      "prediction": "standing",
+      "ground_truth": "cleaning",
+      "correct": false
+    },
+    {
+      "image_id": 139,
+      "question": "How many yellow vases?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 139,
+      "question": "What color is the floor?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 139,
+      "question": "What color is the flower?",
+      "prediction": "pink",
+      "ground_truth": "pink",
+      "correct": true
+    },
+    {
+      "image_id": 262284,
+      "question": "How many sets of doors are open?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262284,
+      "question": "What is this?",
+      "prediction": "shower",
+      "ground_truth": "shower",
+      "correct": true
+    },
+    {
+      "image_id": 262284,
+      "question": "Is the floor tilted?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262284,
+      "question": "What room is this?",
+      "prediction": "bathroom",
+      "ground_truth": "bathroom",
+      "correct": true
+    },
+    {
+      "image_id": 143,
+      "question": "What color is the tip of the birds' tails?",
+      "prediction": "yellow",
+      "ground_truth": "yellow",
+      "correct": true
+    },
+    {
+      "image_id": 143,
+      "question": "How many birds are in the tree?",
+      "prediction": "7",
+      "ground_truth": "8",
+      "correct": false
+    },
+    {
+      "image_id": 143,
+      "question": "Who many birds are black?",
+      "prediction": "0",
+      "ground_truth": "0",
+      "correct": true
+    },
+    {
+      "image_id": 240323,
+      "question": "Is there meat on this plate?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 240323,
+      "question": "Is this a vegetarian meal?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 240323,
+      "question": "What is the green fruit called?",
+      "prediction": "avocado",
+      "ground_truth": "avocado",
+      "correct": true
+    },
+    {
+      "image_id": 524436,
+      "question": "Is there a woman sitting on this bench??",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524436,
+      "question": "Where are they sitting?",
+      "prediction": "bench",
+      "ground_truth": "bench",
+      "correct": true
+    },
+    {
+      "image_id": 524436,
+      "question": "Are there cars in the picture?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524436,
+      "question": "What is the woman sitting on?",
+      "prediction": "bench",
+      "ground_truth": "bench",
+      "correct": true
+    },
+    {
+      "image_id": 524436,
+      "question": "Is it raining?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524436,
+      "question": "Are these two people a couple?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is her hair blue?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Can her eyes be seen?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is she wearing long sleeves?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "What color is the wig?",
+      "prediction": "purple",
+      "ground_truth": "purple",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is the girl smiling?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is this a male or female?",
+      "prediction": "female",
+      "ground_truth": "female",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is this a man or woman?",
+      "prediction": "woman",
+      "ground_truth": "woman",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "What facial piercing does the girl have?",
+      "prediction": "none",
+      "ground_truth": "none",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Which  ear is pierced?",
+      "prediction": "right",
+      "ground_truth": "right",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Does the woman look happy?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "What color is her hair?",
+      "prediction": "purple",
+      "ground_truth": "blue",
+      "correct": false
+    },
+    {
+      "image_id": 393372,
+      "question": "What type of shirt is the girl wearing?",
+      "prediction": "dress shirt",
+      "ground_truth": "dress",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "What color is her eyes?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "What color hair does the woman have?",
+      "prediction": "purple",
+      "ground_truth": "purple",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "What about this man's appearance might bother a conservative employer?",
+      "prediction": "purple hair",
+      "ground_truth": "hair color",
+      "correct": false
+    },
+    {
+      "image_id": 393372,
+      "question": "Is the woman's hair straight or curly?",
+      "prediction": "straight",
+      "ground_truth": "straight",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is this person only wearing a black shirt?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is the woman looking at the camera?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is the girl's part in her hair even?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Does the person have any facial piercings?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "What is her expression?",
+      "prediction": "serious",
+      "ground_truth": "serious",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is the girl funny?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393372,
+      "question": "Is cleavage visible?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What type of trucks are in the photo?",
+      "prediction": "bus",
+      "ground_truth": "bus",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Where are the ducks?",
+      "prediction": "on ground",
+      "ground_truth": "nowhere",
+      "correct": false
+    },
+    {
+      "image_id": 524450,
+      "question": "Is this a fire engine?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Are they all going to board a train?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What is moving on the street?",
+      "prediction": "bus",
+      "ground_truth": "bus",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What color is the bus?",
+      "prediction": "white",
+      "ground_truth": "gray",
+      "correct": false
+    },
+    {
+      "image_id": 524450,
+      "question": "Why is there water on the ground?",
+      "prediction": "it rained",
+      "ground_truth": "rain",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Why does the bus have to stop?",
+      "prediction": "to pick up passengers",
+      "ground_truth": "to pick up passengers",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What color is the vehicle?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What kind of vehicle is pictured?",
+      "prediction": "bus",
+      "ground_truth": "bus",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Are there people inside the bus?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Is this a tour bus?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What is the man holding?",
+      "prediction": "bag",
+      "ground_truth": "bag",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Is the bus in a parking space?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What time of the day is it?",
+      "prediction": "afternoon",
+      "ground_truth": "afternoon",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "How many people are boarding the bus?",
+      "prediction": "4",
+      "ground_truth": "3",
+      "correct": false
+    },
+    {
+      "image_id": 524450,
+      "question": "Is anybody getting off the bus?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What is the weather like?",
+      "prediction": "sunny",
+      "ground_truth": "sunny",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Is there a container available for trash?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What is mainly featured?",
+      "prediction": "bus",
+      "ground_truth": "bus",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What are the streets made of?",
+      "prediction": "concrete",
+      "ground_truth": "concrete",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What color is the camper?",
+      "prediction": "white",
+      "ground_truth": "silver",
+      "correct": false
+    },
+    {
+      "image_id": 524450,
+      "question": "Are the bus lights on at bottom?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "What is the man riding?",
+      "prediction": "bus",
+      "ground_truth": "bus",
+      "correct": true
+    },
+    {
+      "image_id": 524450,
+      "question": "Where is the bus located?",
+      "prediction": "parking lot",
+      "ground_truth": "parking lot",
+      "correct": true
+    },
+    {
+      "image_id": 164,
+      "question": "How many paper towel rolls?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 164,
+      "question": "What is the color of the refrigerator?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 164,
+      "question": "Is the light on?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 164,
+      "question": "What color is the wall?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 524456,
+      "question": "How many mice are on the desk?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 524456,
+      "question": "Does the person working on the computer have a car?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524456,
+      "question": "Is the person on the laptop married?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524459,
+      "question": "What kind of animal is on the Guinness poster?",
+      "prediction": "toucan",
+      "ground_truth": "toucan",
+      "correct": true
+    },
+    {
+      "image_id": 524459,
+      "question": "Is the man using a laptop or desktop computer?",
+      "prediction": "laptop",
+      "ground_truth": "laptop",
+      "correct": true
+    },
+    {
+      "image_id": 524459,
+      "question": "Is this man disgusted?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 436936,
+      "question": "How many animals are visible?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 436936,
+      "question": "Is the animal on a tree branch or bush?",
+      "prediction": "branch",
+      "ground_truth": "branch",
+      "correct": true
+    },
+    {
+      "image_id": 436936,
+      "question": "What animal is this?",
+      "prediction": "bear",
+      "ground_truth": "bear",
+      "correct": true
+    },
+    {
+      "image_id": 262323,
+      "question": "What is behind the giraffe?",
+      "prediction": "ostrich",
+      "ground_truth": "ostrich",
+      "correct": true
+    },
+    {
+      "image_id": 262323,
+      "question": "What is similar about the two animals in this photo?",
+      "prediction": "giraffes",
+      "ground_truth": "hunch",
+      "correct": false
+    },
+    {
+      "image_id": 262323,
+      "question": "How many animals do you see?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 262323,
+      "question": "Is the giraffes head small?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262325,
+      "question": "How green are the vegetables?",
+      "prediction": "very",
+      "ground_truth": "very",
+      "correct": true
+    },
+    {
+      "image_id": 262325,
+      "question": "Is this an unhealthy snack?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262325,
+      "question": "Are the vegetables cooked?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262325,
+      "question": "What are the veggies on?",
+      "prediction": "bowl",
+      "ground_truth": "bowl",
+      "correct": true
+    },
+    {
+      "image_id": 262334,
+      "question": "Is this indoors?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262334,
+      "question": "What type of hat is she wearing?",
+      "prediction": "fedora",
+      "ground_truth": "cap",
+      "correct": false
+    },
+    {
+      "image_id": 262334,
+      "question": "Is the lady inside or outside?",
+      "prediction": "inside",
+      "ground_truth": "inside",
+      "correct": true
+    },
+    {
+      "image_id": 262334,
+      "question": "What is the floor made of?",
+      "prediction": "wood",
+      "ground_truth": "wood",
+      "correct": true
+    },
+    {
+      "image_id": 192,
+      "question": "What sport is being played?",
+      "prediction": "baseball",
+      "ground_truth": "baseball",
+      "correct": true
+    },
+    {
+      "image_id": 192,
+      "question": "Is the catcher wearing safety gear?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 192,
+      "question": "What is the name of the teams?",
+      "prediction": "dodgers and cubs",
+      "ground_truth": "cubs",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "Is this a propeller plane?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "Is the plane taking off or landing?",
+      "prediction": "taking off",
+      "ground_truth": "landing",
+      "correct": false
+    },
+    {
+      "image_id": 393410,
+      "question": "Was this taken at sunset?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "Is it getting dark?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "What color is the plane?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "What are these flying?",
+      "prediction": "plane",
+      "ground_truth": "plane",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "Are there clouds in the sky?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "Is the plane flying too low?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "What is the color of the sky?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "Is there a seagull?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393410,
+      "question": "What's in the sky?",
+      "prediction": "plane",
+      "ground_truth": "plane",
+      "correct": true
+    },
+    {
+      "image_id": 393411,
+      "question": "Is the door closed?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 393411,
+      "question": "What is on the train?",
+      "prediction": "graffiti",
+      "ground_truth": "graffiti",
+      "correct": true
+    },
+    {
+      "image_id": 393411,
+      "question": "What is the vandalism/painting on above the doors called?",
+      "prediction": "graffiti",
+      "ground_truth": "graffiti",
+      "correct": true
+    },
+    {
+      "image_id": 196,
+      "question": "What is the yellow food?",
+      "prediction": "corn",
+      "ground_truth": "corn",
+      "correct": true
+    },
+    {
+      "image_id": 196,
+      "question": "Are there lots of healthy options on the table?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 196,
+      "question": "How many containers?",
+      "prediction": "20",
+      "ground_truth": "20",
+      "correct": true
+    },
+    {
+      "image_id": 196,
+      "question": "How many dishes of food are in the picture?",
+      "prediction": "20",
+      "ground_truth": "20",
+      "correct": true
+    },
+    {
+      "image_id": 196,
+      "question": "Is this going to be a feast?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131273,
+      "question": "Which type of dog?",
+      "prediction": "husky",
+      "ground_truth": "husky",
+      "correct": true
+    },
+    {
+      "image_id": 131273,
+      "question": "Where is the dog looking at?",
+      "prediction": "out window",
+      "ground_truth": "windshield",
+      "correct": false
+    },
+    {
+      "image_id": 131273,
+      "question": "Is the door window open or closed?",
+      "prediction": "open",
+      "ground_truth": "open",
+      "correct": true
+    },
+    {
+      "image_id": 262347,
+      "question": "Is this a farmers market?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262347,
+      "question": "Is there a beehive in the garden?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262347,
+      "question": "What kind of flowers are here?",
+      "prediction": "daisies",
+      "ground_truth": "daisies",
+      "correct": true
+    },
+    {
+      "image_id": 262347,
+      "question": "Is there a bench in the garden?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131276,
+      "question": "Are all the people of the same race?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131276,
+      "question": "How many women are in the image?",
+      "prediction": "3",
+      "ground_truth": "3",
+      "correct": true
+    },
+    {
+      "image_id": 131276,
+      "question": "What type of food is being sold?",
+      "prediction": "donuts",
+      "ground_truth": "donuts",
+      "correct": true
+    },
+    {
+      "image_id": 393421,
+      "question": "What room is pictured?",
+      "prediction": "bedroom",
+      "ground_truth": "bedroom",
+      "correct": true
+    },
+    {
+      "image_id": 393421,
+      "question": "How many suitcases  are shown?",
+      "prediction": "2",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 393421,
+      "question": "Is this a hotel room?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393421,
+      "question": "What is glowing?",
+      "prediction": "light",
+      "ground_truth": "light",
+      "correct": true
+    },
+    {
+      "image_id": 393421,
+      "question": "Does this room have tile?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393421,
+      "question": "What color is the carpet?",
+      "prediction": "gray",
+      "ground_truth": "gray",
+      "correct": true
+    },
+    {
+      "image_id": 393423,
+      "question": "What are these animals?",
+      "prediction": "giraffes",
+      "ground_truth": "giraffes",
+      "correct": true
+    },
+    {
+      "image_id": 393423,
+      "question": "Where are the giraffes?",
+      "prediction": "in field",
+      "ground_truth": "field",
+      "correct": true
+    },
+    {
+      "image_id": 393423,
+      "question": "Are the animals in a zoo?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393423,
+      "question": "What is the large figure?",
+      "prediction": "giraffe",
+      "ground_truth": "giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 393423,
+      "question": "How many giraffes are in this photo?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 393423,
+      "question": "Where is this scene taken?",
+      "prediction": "in field",
+      "ground_truth": "africa",
+      "correct": false
+    },
+    {
+      "image_id": 393423,
+      "question": "What are the giraffes doing?",
+      "prediction": "standing",
+      "ground_truth": "hugging",
+      "correct": false
+    },
+    {
+      "image_id": 393423,
+      "question": "How many giraffes in the horizon?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 131280,
+      "question": "What color is the lettering on shirts?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 131280,
+      "question": "How many teams are visible?",
+      "prediction": "2",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 131280,
+      "question": "Is this a baseball field?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262353,
+      "question": "How many people are there?",
+      "prediction": "8",
+      "ground_truth": "8",
+      "correct": true
+    },
+    {
+      "image_id": 262353,
+      "question": "Is the man in the orange sweater combing the lady's hair?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262353,
+      "question": "Do the people know each other?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131282,
+      "question": "What words are on the cup?",
+      "prediction": "nestle",
+      "ground_truth": "allstate",
+      "correct": false
+    },
+    {
+      "image_id": 131282,
+      "question": "Is all the food on the plate vegetables?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131282,
+      "question": "Does she eat with the right hand?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131282,
+      "question": "What color is the sauce?",
+      "prediction": "green",
+      "ground_truth": "green",
+      "correct": true
+    },
+    {
+      "image_id": 131282,
+      "question": "Has the food this woman is preparing been fried?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524502,
+      "question": "What is the red object in this picture?",
+      "prediction": "fire hydrant",
+      "ground_truth": "fire hydrant",
+      "correct": true
+    },
+    {
+      "image_id": 524502,
+      "question": "What color are the rocks near the fire hydrant?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 524502,
+      "question": "What is the large pole sticking up for?",
+      "prediction": "to hold up tree",
+      "ground_truth": "fishing",
+      "correct": false
+    },
+    {
+      "image_id": 524502,
+      "question": "Is there snow?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262360,
+      "question": "Is this a glass flower vase?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262360,
+      "question": "What color is the vase?",
+      "prediction": "clear",
+      "ground_truth": "clear",
+      "correct": true
+    },
+    {
+      "image_id": 262360,
+      "question": "What kind of flowers?",
+      "prediction": "roses",
+      "ground_truth": "carnations",
+      "correct": false
+    },
+    {
+      "image_id": 262360,
+      "question": "Which color is the flower?",
+      "prediction": "pink",
+      "ground_truth": "pink",
+      "correct": true
+    },
+    {
+      "image_id": 262360,
+      "question": "Are the flowers dead?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262360,
+      "question": "Is this edible?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524507,
+      "question": "Are cars allowed?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524507,
+      "question": "What language is the sign written in?",
+      "prediction": "english",
+      "ground_truth": "german",
+      "correct": false
+    },
+    {
+      "image_id": 524507,
+      "question": "Will this man's head get wet without the umbrella?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131295,
+      "question": "How many vehicles are in the picture?",
+      "prediction": "one",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 131295,
+      "question": "Is the train in the city?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131295,
+      "question": "From what perspective was this photo taken?",
+      "prediction": "above",
+      "ground_truth": "in air",
+      "correct": false
+    },
+    {
+      "image_id": 131295,
+      "question": "Is the train moving fast?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131295,
+      "question": "What does it drive on?",
+      "prediction": "tracks",
+      "ground_truth": "tracks",
+      "correct": true
+    },
+    {
+      "image_id": 131295,
+      "question": "What is the title of the person that drives this?",
+      "prediction": "conductor",
+      "ground_truth": "conductor",
+      "correct": true
+    },
+    {
+      "image_id": 262371,
+      "question": "Is this cat ready for bed?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262371,
+      "question": "Where is the cat sitting?",
+      "prediction": "on bag",
+      "ground_truth": "backpack",
+      "correct": false
+    },
+    {
+      "image_id": 262371,
+      "question": "What is the cat sitting on?",
+      "prediction": "backpack",
+      "ground_truth": "backpack",
+      "correct": true
+    },
+    {
+      "image_id": 262371,
+      "question": "What is the animal sitting on?",
+      "prediction": "backpack",
+      "ground_truth": "backpack",
+      "correct": true
+    },
+    {
+      "image_id": 262371,
+      "question": "What kind of mood is this cat in?",
+      "prediction": "sleepy",
+      "ground_truth": "sleepy",
+      "correct": true
+    },
+    {
+      "image_id": 262371,
+      "question": "What is the cat looking at?",
+      "prediction": "camera",
+      "ground_truth": "camera",
+      "correct": true
+    },
+    {
+      "image_id": 262371,
+      "question": "How many cats?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262376,
+      "question": "Are flowers on the Umbrellas?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262376,
+      "question": "How many upside-down umbrellas are visible?",
+      "prediction": "12",
+      "ground_truth": "16",
+      "correct": false
+    },
+    {
+      "image_id": 262376,
+      "question": "Is this a big building?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 241,
+      "question": "What is he sitting on?",
+      "prediction": "couch",
+      "ground_truth": "chair",
+      "correct": false
+    },
+    {
+      "image_id": 241,
+      "question": "What emotions are the people depicting?",
+      "prediction": "happy",
+      "ground_truth": "boredom",
+      "correct": false
+    },
+    {
+      "image_id": 241,
+      "question": "What is on the floor next to the lady?",
+      "prediction": "purse",
+      "ground_truth": "purse",
+      "correct": true
+    },
+    {
+      "image_id": 241,
+      "question": "Do you think these two boys are brothers?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 241,
+      "question": "What color are the cups?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "How many rolls of toilet paper are there?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What is next to the toilet paper?",
+      "prediction": "toilet",
+      "ground_truth": "toilet",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is this a bathroom?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Who uses these?",
+      "prediction": "people",
+      "ground_truth": "people",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Can these fixtures be used right where they are?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is there a shelf above the toilet?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is this  toilet in the floor?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What color is the bathroom?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is this a metal toilet?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Are these items real or just models?",
+      "prediction": "real",
+      "ground_truth": "real",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "How many cats?",
+      "prediction": "0",
+      "ground_truth": "0",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Who took this photo?",
+      "prediction": "photographer",
+      "ground_truth": "person",
+      "correct": false
+    },
+    {
+      "image_id": 262386,
+      "question": "Is the stove gas or electric?",
+      "prediction": "no stove",
+      "ground_truth": "neither",
+      "correct": false
+    },
+    {
+      "image_id": 262386,
+      "question": "Is this bathroom dirty?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Who has the copyright of this picture?",
+      "prediction": "photographer",
+      "ground_truth": "photographer",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Are the toilets complete?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is there any toilet paper?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What shape is the room?",
+      "prediction": "square",
+      "ground_truth": "square",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is the floor dirty?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What color is the wall?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Does this toilet have a lit?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 262386,
+      "question": "Is there a fire extinguisher?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is this a private bathroom?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is the toilet paper loaded to roll over or under?",
+      "prediction": "over",
+      "ground_truth": "over",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is there a toilet brush?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 262386,
+      "question": "Is the toilet clean?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is the floor wet?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Can two different species perform their \"business\" here?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What is this toilet made out of?",
+      "prediction": "porcelain",
+      "ground_truth": "porcelain",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is the toilet lid up?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is the bathroom clean?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is there a mirror?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What material is the toilet?",
+      "prediction": "porcelain",
+      "ground_truth": "porcelain",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What color is the toilet?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Is this toilet dirty?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "How many toilets are there?",
+      "prediction": "one",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 262386,
+      "question": "Is this toilet usable right now?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What color is the floor?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What color is the pipe that is behind the base of the toilet?",
+      "prediction": "silver",
+      "ground_truth": "silver",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Do the toilets have lids?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "What is the metal rack on the wall for?",
+      "prediction": "toilet paper",
+      "ground_truth": "toilet paper",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "Are there tiles on the wall?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262386,
+      "question": "How many toilet paper rolls are there?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 524533,
+      "question": "What is the bus advertising?",
+      "prediction": "outlookcom",
+      "ground_truth": "outlookcom",
+      "correct": true
+    },
+    {
+      "image_id": 524533,
+      "question": "Does the bus look to gaudy?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524533,
+      "question": "What kind of flag is in the picture?",
+      "prediction": "american",
+      "ground_truth": "american",
+      "correct": true
+    },
+    {
+      "image_id": 262391,
+      "question": "Can you see through these curtains?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262391,
+      "question": "Are the curtains too long for the windows?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262391,
+      "question": "What piece of equipment is being used?",
+      "prediction": "tv",
+      "ground_truth": "wii",
+      "correct": false
+    },
+    {
+      "image_id": 262391,
+      "question": "Are the curtains too short?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262391,
+      "question": "What color is the door?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262391,
+      "question": "How many people are in the room?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 262391,
+      "question": "Is that a television screen?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524536,
+      "question": "What is this guy doing?",
+      "prediction": "smiling",
+      "ground_truth": "holding his tie",
+      "correct": false
+    },
+    {
+      "image_id": 524536,
+      "question": "Is the man happy?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524536,
+      "question": "Is the man showing off his tie?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524536,
+      "question": "Is he holding a beer?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524536,
+      "question": "What famous political figure is in the center of this photo?",
+      "prediction": "george bush",
+      "ground_truth": "none",
+      "correct": false
+    },
+    {
+      "image_id": 524536,
+      "question": "What occasion is the man attending?",
+      "prediction": "wedding",
+      "ground_truth": "wedding",
+      "correct": true
+    },
+    {
+      "image_id": 524536,
+      "question": "Is the man dressed casually?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 510657,
+      "question": "Are they all happy?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 510657,
+      "question": "How many of the men are wearing glasses?",
+      "prediction": "3",
+      "ground_truth": "2",
+      "correct": false
+    },
+    {
+      "image_id": 510657,
+      "question": "How many glasses?",
+      "prediction": "8",
+      "ground_truth": "7",
+      "correct": false
+    },
+    {
+      "image_id": 510657,
+      "question": "How many people are here?",
+      "prediction": "8",
+      "ground_truth": "7",
+      "correct": false
+    },
+    {
+      "image_id": 510657,
+      "question": "What pattern is on the closest girl's shirt?",
+      "prediction": "solid",
+      "ground_truth": "solid",
+      "correct": true
+    },
+    {
+      "image_id": 510657,
+      "question": "What is shining from the ceiling?",
+      "prediction": "lights",
+      "ground_truth": "lights",
+      "correct": true
+    },
+    {
+      "image_id": 510657,
+      "question": "How many people are sitting at the table?",
+      "prediction": "8",
+      "ground_truth": "7",
+      "correct": false
+    },
+    {
+      "image_id": 262396,
+      "question": "What is the cat laying on?",
+      "prediction": "chair",
+      "ground_truth": "chair",
+      "correct": true
+    },
+    {
+      "image_id": 262396,
+      "question": "What color fur is the cat shedding?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262396,
+      "question": "Is this cat clawing the chair?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393469,
+      "question": "Is it cold?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393469,
+      "question": "Are there deciduous trees?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393469,
+      "question": "What color is the man's coat?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 257,
+      "question": "What color is the car on the far right?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 257,
+      "question": "Is there an ice cream truck?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 257,
+      "question": "Is it daytime?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 257,
+      "question": "Is the dog real?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 257,
+      "question": "What shoe company is advertised?",
+      "prediction": "nike",
+      "ground_truth": "nike",
+      "correct": true
+    },
+    {
+      "image_id": 257,
+      "question": "What color is the truck?",
+      "prediction": "red",
+      "ground_truth": "red and white",
+      "correct": true
+    },
+    {
+      "image_id": 262404,
+      "question": "What color is the cake frosting?",
+      "prediction": "green",
+      "ground_truth": "green",
+      "correct": true
+    },
+    {
+      "image_id": 262404,
+      "question": "Are  these children or adults?",
+      "prediction": "children",
+      "ground_truth": "children",
+      "correct": true
+    },
+    {
+      "image_id": 262404,
+      "question": "Whose mouth is open?",
+      "prediction": "girl",
+      "ground_truth": "boy's",
+      "correct": false
+    },
+    {
+      "image_id": 393478,
+      "question": "What 2 colors are on the front of the train?",
+      "prediction": "green and yellow",
+      "ground_truth": "yellow and green",
+      "correct": false
+    },
+    {
+      "image_id": 393478,
+      "question": "Is the train passing a snowy area?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393478,
+      "question": "Is there snow on the ground?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393478,
+      "question": "Are the cars driving through a tunnel?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 131335,
+      "question": "Are those two clocks on the front of the building?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 131335,
+      "question": "Is this an American city?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131335,
+      "question": "Is the man's head covered?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131335,
+      "question": "What is the name of the theater?",
+      "prediction": "grand",
+      "ground_truth": "grand",
+      "correct": true
+    },
+    {
+      "image_id": 131335,
+      "question": "Is there a flag in this picture?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524333,
+      "question": "What are the tables and chairs made out of?",
+      "prediction": "wood",
+      "ground_truth": "wood",
+      "correct": true
+    },
+    {
+      "image_id": 524333,
+      "question": "Is one of the men balding?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524333,
+      "question": "Are these people learning?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524333,
+      "question": "Are the lights on?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524333,
+      "question": "Are they in a restaurant?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524333,
+      "question": "How many men are holding their chins?",
+      "prediction": "1",
+      "ground_truth": "0",
+      "correct": false
+    },
+    {
+      "image_id": 262425,
+      "question": "Is it sunny?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262425,
+      "question": "Is the seagull in danger of getting entangled in these boat sails?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262425,
+      "question": "Is it a nice day?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262425,
+      "question": "Is that a seagull?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262425,
+      "question": "Who is \"riding\" the boat?",
+      "prediction": "no one",
+      "ground_truth": "no one",
+      "correct": true
+    },
+    {
+      "image_id": 283,
+      "question": "What is the brand of wine?",
+      "prediction": "la vieille ferme",
+      "ground_truth": "cupcake",
+      "correct": false
+    },
+    {
+      "image_id": 283,
+      "question": "What drink is shown?",
+      "prediction": "wine",
+      "ground_truth": "wine",
+      "correct": true
+    },
+    {
+      "image_id": 283,
+      "question": "What is the table made of?",
+      "prediction": "glass",
+      "ground_truth": "glass",
+      "correct": true
+    },
+    {
+      "image_id": 283,
+      "question": "What is in the cup?",
+      "prediction": "wine",
+      "ground_truth": "wine",
+      "correct": true
+    },
+    {
+      "image_id": 283,
+      "question": "What is this bottle?",
+      "prediction": "wine",
+      "ground_truth": "wine",
+      "correct": true
+    },
+    {
+      "image_id": 283,
+      "question": "What color is the chair in the background?",
+      "prediction": "white",
+      "ground_truth": "tan",
+      "correct": false
+    },
+    {
+      "image_id": 283,
+      "question": "Is this a high quality bottle of wine?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 285,
+      "question": "Is the bear sitting?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 285,
+      "question": "Is it daytime?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 285,
+      "question": "Is the bears eyes open?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524575,
+      "question": "Is it cold?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524575,
+      "question": "Do the animals live in the cave?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524575,
+      "question": "Do all the trees have leaves?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 524575,
+      "question": "What animal is in front of their giraffes?",
+      "prediction": "cow",
+      "ground_truth": "buffalo",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What time is this?",
+      "prediction": "12 : 00",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "Are the numbers on the clock Roman numerals?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "According to this clock, is it morning or afternoon?",
+      "prediction": "afternoon",
+      "ground_truth": "morning",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "How long until the clock says midnight?",
+      "prediction": "1 hour",
+      "ground_truth": "50 minutes",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What color is the building?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "What time is it?",
+      "prediction": "12 : 00",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What number of clocks are on this tower?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "What time does the clock say?",
+      "prediction": "12 : 00",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What time does the clock on the building say?",
+      "prediction": "12 : 00",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What time does the clock read?",
+      "prediction": "12 : 00",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "Is there a clock tower in the photo?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "What time of day is this?",
+      "prediction": "afternoon",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "Is it am or pm?",
+      "prediction": "pm",
+      "ground_truth": "am",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What time is the clock showing?",
+      "prediction": "12 : 00",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "Is this in a large city?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "Is this a tower clock?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "How long until midnight?",
+      "prediction": "9 hours",
+      "ground_truth": "13 hours",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "Where are the clocks?",
+      "prediction": "on building",
+      "ground_truth": "on wall",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What kind of stone is the building made of?",
+      "prediction": "brick",
+      "ground_truth": "brick",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "How many stories is the building on the right?",
+      "prediction": "3",
+      "ground_truth": "2",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What time is it in the picture?",
+      "prediction": "12 : 00",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What color is the building with the clock on it?",
+      "prediction": "brown",
+      "ground_truth": "red",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "What color is tall tower that is in the background?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "How many clocks are shown?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "Where is the clock located?",
+      "prediction": "on building",
+      "ground_truth": "on building",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "Does the metalwork to the right of the clock resemble a birdcage?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "What language are the numbers in?",
+      "prediction": "english",
+      "ground_truth": "english",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "What type of numbers are on the clock?",
+      "prediction": "roman numerals",
+      "ground_truth": "normal",
+      "correct": false
+    },
+    {
+      "image_id": 524577,
+      "question": "Are the numbers in Roman numerals?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524577,
+      "question": "How many figures are on the street signs?",
+      "prediction": "2",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 294,
+      "question": "Is this the kitchen?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What does the black machine next to the man produce?",
+      "prediction": "food",
+      "ground_truth": "microwaves",
+      "correct": false
+    },
+    {
+      "image_id": 294,
+      "question": "Are these people having fun?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What color is the wall?",
+      "prediction": "yellow",
+      "ground_truth": "black",
+      "correct": false
+    },
+    {
+      "image_id": 294,
+      "question": "What is the guy pointing at?",
+      "prediction": "pans",
+      "ground_truth": "pots",
+      "correct": false
+    },
+    {
+      "image_id": 294,
+      "question": "Is this a home kitchen?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "Are the pots and pans hanging on the wall?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What color is the man's shirt?",
+      "prediction": "gray",
+      "ground_truth": "gray",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "How many people are here?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What is the hand doing?",
+      "prediction": "pointing",
+      "ground_truth": "pointing",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "Is this man cooking at home?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What is hanging on the wall?",
+      "prediction": "pans",
+      "ground_truth": "pans",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What is the name for a room like this?",
+      "prediction": "kitchen",
+      "ground_truth": "kitchen",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What nationality do the men on the right appear to be?",
+      "prediction": "american",
+      "ground_truth": "american",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "What is the object on the right?",
+      "prediction": "microwave",
+      "ground_truth": "microwave",
+      "correct": true
+    },
+    {
+      "image_id": 294,
+      "question": "How many pans are visible?",
+      "prediction": "3",
+      "ground_truth": "3",
+      "correct": true
+    },
+    {
+      "image_id": 393511,
+      "question": "Are these people dining together?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393511,
+      "question": "What is the yellow drink?",
+      "prediction": "soup",
+      "ground_truth": "soup",
+      "correct": true
+    },
+    {
+      "image_id": 393511,
+      "question": "Are there any toothpicks on the table?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 262440,
+      "question": "Is the toilet seat up or down?",
+      "prediction": "down",
+      "ground_truth": "down",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "What color are the tiles?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "What are the floors made out of?",
+      "prediction": "tile",
+      "ground_truth": "tile",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "How many sinks are there?",
+      "prediction": "2",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 262440,
+      "question": "What color are the towels?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "Are the walls tiled?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "Is this room modern?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "Is the towel green?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "Is there a TV in this room?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "Are the tiles plain?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "What color is the shower curtain?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "Can the faucet be seen in this picture?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262440,
+      "question": "How many lights are on?",
+      "prediction": "1",
+      "ground_truth": "0",
+      "correct": false
+    },
+    {
+      "image_id": 262440,
+      "question": "What room is this a picture of?",
+      "prediction": "bathroom",
+      "ground_truth": "bathroom",
+      "correct": true
+    },
+    {
+      "image_id": 393513,
+      "question": "Is the man skating on a fence?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 393513,
+      "question": "Is it sunny?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393513,
+      "question": "Where is the sun shining from?",
+      "prediction": "left",
+      "ground_truth": "sky",
+      "correct": false
+    },
+    {
+      "image_id": 393513,
+      "question": "Is it warm in this photo?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393513,
+      "question": "What is the giraffe doing?",
+      "prediction": "no giraffe",
+      "ground_truth": "no giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 393513,
+      "question": "What is the man wearing on his head?",
+      "prediction": "hat",
+      "ground_truth": "hat",
+      "correct": true
+    },
+    {
+      "image_id": 393523,
+      "question": "Can you go swimming in this picture?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 393523,
+      "question": "Is anyone crossing the bridge?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 393523,
+      "question": "Is it cloudy?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393523,
+      "question": "What city is this?",
+      "prediction": "london",
+      "ground_truth": "london",
+      "correct": true
+    },
+    {
+      "image_id": 393523,
+      "question": "Is a bus crossing the bridge?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "What color shirt is the person to the farthest right wearing?",
+      "prediction": "black",
+      "ground_truth": "white",
+      "correct": false
+    },
+    {
+      "image_id": 524601,
+      "question": "Are these children in contemporary dress?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "What gaming console do they appear to be playing?",
+      "prediction": "wii",
+      "ground_truth": "wii",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "How many people do you see?",
+      "prediction": "8",
+      "ground_truth": "6",
+      "correct": false
+    },
+    {
+      "image_id": 524601,
+      "question": "Are they all planning to skate?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "What game are this people playing?",
+      "prediction": "wii",
+      "ground_truth": "wii",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "Are these college students?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "How many women are there?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "How many elderly people are in this picture?",
+      "prediction": "0",
+      "ground_truth": "0",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "What are the children doing?",
+      "prediction": "playing wii",
+      "ground_truth": "playing wii",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "Are the women wearing ties?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "Is this indoors?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524601,
+      "question": "How many people are playing?",
+      "prediction": "4",
+      "ground_truth": "4",
+      "correct": true
+    },
+    {
+      "image_id": 131386,
+      "question": "What color are their wing tips?",
+      "prediction": "yellow",
+      "ground_truth": "yellow",
+      "correct": true
+    },
+    {
+      "image_id": 131386,
+      "question": "How many airplanes are in the picture?",
+      "prediction": "6",
+      "ground_truth": "4",
+      "correct": false
+    },
+    {
+      "image_id": 131386,
+      "question": "Are the planes fast?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262460,
+      "question": "What is in the background on the shelves?",
+      "prediction": "shirts",
+      "ground_truth": "shirts",
+      "correct": true
+    },
+    {
+      "image_id": 262460,
+      "question": "What fashion accessory is sitting on top of the white collared shirt?",
+      "prediction": "tie",
+      "ground_truth": "tie",
+      "correct": true
+    },
+    {
+      "image_id": 262460,
+      "question": "Was this outfit picked out?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131390,
+      "question": "Is it afternoon?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131390,
+      "question": "Is this picture relaxing?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131390,
+      "question": "What animal is in this scene?",
+      "prediction": "cows",
+      "ground_truth": "cows",
+      "correct": true
+    },
+    {
+      "image_id": 131390,
+      "question": "What kind of animals are sitting in the grass?",
+      "prediction": "cows",
+      "ground_truth": "cows",
+      "correct": true
+    },
+    {
+      "image_id": 262466,
+      "question": "Are flowers fresh?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262466,
+      "question": "What tool is hanging behind the flowers?",
+      "prediction": "shovel",
+      "ground_truth": "shovel",
+      "correct": true
+    },
+    {
+      "image_id": 262466,
+      "question": "What do you call the intersection of the two walls shown in the scene?",
+      "prediction": "corner",
+      "ground_truth": "corner",
+      "correct": true
+    },
+    {
+      "image_id": 262466,
+      "question": "Is there any roses?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262466,
+      "question": "What color are the walls?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 262466,
+      "question": "What is the color of the wall behind the vase?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 262466,
+      "question": "What color is the twine around the vase?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 524611,
+      "question": "How many helicopters are in the sky?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 524611,
+      "question": "What color is the building on the right hand side of this picture?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 524611,
+      "question": "What does the graffiti on the train say?",
+      "prediction": "nothing",
+      "ground_truth": "black rectangle",
+      "correct": false
+    },
+    {
+      "image_id": 524611,
+      "question": "Is the train carrying people?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524611,
+      "question": "Does the train's shadow appear left or right?",
+      "prediction": "left",
+      "ground_truth": "right",
+      "correct": false
+    },
+    {
+      "image_id": 524611,
+      "question": "What junction is this train traveling through?",
+      "prediction": "train",
+      "ground_truth": "davis",
+      "correct": false
+    },
+    {
+      "image_id": 524611,
+      "question": "Is this a parking lot for bikes?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524611,
+      "question": "What type of train cars are pictured?",
+      "prediction": "tankers",
+      "ground_truth": "round",
+      "correct": false
+    },
+    {
+      "image_id": 262471,
+      "question": "Has the grass been mowed?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262471,
+      "question": "What does the sign say?",
+      "prediction": "stop",
+      "ground_truth": "stop",
+      "correct": true
+    },
+    {
+      "image_id": 262471,
+      "question": "What is sold at the building with the green trim?",
+      "prediction": "furniture",
+      "ground_truth": "unknown",
+      "correct": false
+    },
+    {
+      "image_id": 262471,
+      "question": "Is this a commercial or residential area?",
+      "prediction": "commercial",
+      "ground_truth": "commercial",
+      "correct": true
+    },
+    {
+      "image_id": 262471,
+      "question": "Which direction should you turn to find parking?",
+      "prediction": "right",
+      "ground_truth": "right",
+      "correct": true
+    },
+    {
+      "image_id": 262471,
+      "question": "Is the street name on top an unusual name for a street?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262471,
+      "question": "What does the blue sign say?",
+      "prediction": "w 85 st",
+      "ground_truth": "none",
+      "correct": false
+    },
+    {
+      "image_id": 262471,
+      "question": "Is the stop sign in English?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262471,
+      "question": "What is at this location?",
+      "prediction": "stop sign",
+      "ground_truth": "stop sign",
+      "correct": true
+    },
+    {
+      "image_id": 328,
+      "question": "What are the men sitting on?",
+      "prediction": "bench",
+      "ground_truth": "bench",
+      "correct": true
+    },
+    {
+      "image_id": 328,
+      "question": "What are the ranks of the military members?",
+      "prediction": "private",
+      "ground_truth": "officers",
+      "correct": false
+    },
+    {
+      "image_id": 328,
+      "question": "What military are they from?",
+      "prediction": "army",
+      "ground_truth": "army",
+      "correct": true
+    },
+    {
+      "image_id": 21900,
+      "question": "Is the rider a child or an adult?",
+      "prediction": "adult",
+      "ground_truth": "adult",
+      "correct": true
+    },
+    {
+      "image_id": 21900,
+      "question": "Is the wide gate on hinges?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 21900,
+      "question": "Is the horse jumping?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 21900,
+      "question": "Is the man wearing a helmet?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 21900,
+      "question": "What color is the blanket that lays on the horses back?",
+      "prediction": "brown",
+      "ground_truth": "white",
+      "correct": false
+    },
+    {
+      "image_id": 393547,
+      "question": "Is the cat looking at the camera?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393547,
+      "question": "What is the cat sitting on?",
+      "prediction": "mirror",
+      "ground_truth": "mirror",
+      "correct": true
+    },
+    {
+      "image_id": 393547,
+      "question": "What color is the cat?",
+      "prediction": "orange and white",
+      "ground_truth": "orange and white",
+      "correct": true
+    },
+    {
+      "image_id": 262476,
+      "question": "Are the people having a party?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262476,
+      "question": "How many people?",
+      "prediction": "8",
+      "ground_truth": "6",
+      "correct": false
+    },
+    {
+      "image_id": 262476,
+      "question": "How many black stripes are on the blue shirt?",
+      "prediction": "5",
+      "ground_truth": "12",
+      "correct": false
+    },
+    {
+      "image_id": 524621,
+      "question": "How many birds are there?",
+      "prediction": "0",
+      "ground_truth": "0",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Are these animals wild?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Are the giraffes eating?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Are the giraffes male or female?",
+      "prediction": "male",
+      "ground_truth": "male",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Is this a young or old animal?",
+      "prediction": "young",
+      "ground_truth": "old",
+      "correct": false
+    },
+    {
+      "image_id": 524621,
+      "question": "Is this a man made exhibit?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Can these animals fly?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "What is the animal?",
+      "prediction": "giraffe",
+      "ground_truth": "giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "What animal is in the picture?",
+      "prediction": "giraffe",
+      "ground_truth": "giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "What kind of animal is this?",
+      "prediction": "giraffe",
+      "ground_truth": "giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Is one giraffes head out of view?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 524621,
+      "question": "Is there water in this photo?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Are any of the giraffe's looking at the camera?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 524621,
+      "question": "Does it have tusks?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "What are these animals doing?",
+      "prediction": "standing",
+      "ground_truth": "standing",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Are there two different types of animal?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Is this a zoo?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "How many eyes do you see?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "What kind of animals are in the dry grass?",
+      "prediction": "giraffes",
+      "ground_truth": "giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "What animal is this?",
+      "prediction": "giraffe",
+      "ground_truth": "giraffe",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Is the giraffe carrying any passengers?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "How many giraffe's are in the shot?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "What two animals are photoshopped together?",
+      "prediction": "giraffes",
+      "ground_truth": "giraffes",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Is the animal in an enclosure?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Animal, vegetable or mineral?",
+      "prediction": "animal",
+      "ground_truth": "animal",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "How many spots are visible on the animal?",
+      "prediction": "many",
+      "ground_truth": "50",
+      "correct": false
+    },
+    {
+      "image_id": 524621,
+      "question": "How many spots on the giraffe are shown?",
+      "prediction": "many",
+      "ground_truth": "all",
+      "correct": false
+    },
+    {
+      "image_id": 524621,
+      "question": "What design does the giraffe have?",
+      "prediction": "spots",
+      "ground_truth": "spots",
+      "correct": true
+    },
+    {
+      "image_id": 524621,
+      "question": "Where is the giraffe looking?",
+      "prediction": "at camera",
+      "ground_truth": "right",
+      "correct": false
+    },
+    {
+      "image_id": 524621,
+      "question": "Is the giraffe standing up?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 338,
+      "question": "Is this a bedroom?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 338,
+      "question": "What time is it?",
+      "prediction": "2 : 35",
+      "ground_truth": "11:10",
+      "correct": false
+    },
+    {
+      "image_id": 338,
+      "question": "What is the man doing?",
+      "prediction": "cooking",
+      "ground_truth": "writing",
+      "correct": false
+    },
+    {
+      "image_id": 524627,
+      "question": "Are there any teenagers?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524627,
+      "question": "Is there a boy with long hair?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 524627,
+      "question": "What kind of donuts are on the woman's shirt?",
+      "prediction": "frosted",
+      "ground_truth": "frosted",
+      "correct": true
+    },
+    {
+      "image_id": 393557,
+      "question": "How many zebras are present?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 393557,
+      "question": "Are the zebras fighting?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393557,
+      "question": "What color is the zebra?",
+      "prediction": "black and white",
+      "ground_truth": "black and white",
+      "correct": true
+    },
+    {
+      "image_id": 262487,
+      "question": "What color uniform is the batter wearing?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262487,
+      "question": "What color is the umpire's shin pads?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 262487,
+      "question": "What is the job of the man in black?",
+      "prediction": "umpire",
+      "ground_truth": "umpire",
+      "correct": true
+    },
+    {
+      "image_id": 131416,
+      "question": "What is on the meat?",
+      "prediction": "lettuce",
+      "ground_truth": "cheese",
+      "correct": false
+    },
+    {
+      "image_id": 131416,
+      "question": "What is sticking through the top of each sandwich?",
+      "prediction": "toothpick",
+      "ground_truth": "toothpick",
+      "correct": true
+    },
+    {
+      "image_id": 131416,
+      "question": "What is the green stuff on the sandwich?",
+      "prediction": "lettuce",
+      "ground_truth": "lettuce",
+      "correct": true
+    },
+    {
+      "image_id": 131416,
+      "question": "What drink is clearly shown here?",
+      "prediction": "dr pepper",
+      "ground_truth": "dr pepper",
+      "correct": true
+    },
+    {
+      "image_id": 131418,
+      "question": "Is this a color photograph?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131418,
+      "question": "How many people are walking with umbrellas?",
+      "prediction": "3",
+      "ground_truth": "3",
+      "correct": true
+    },
+    {
+      "image_id": 131418,
+      "question": "Can the people get into this building?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 546191,
+      "question": "Is the man flying a kite?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 546191,
+      "question": "Is the moon visible in the photo?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 546191,
+      "question": "How many people are in this picture?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 546191,
+      "question": "Is that the letter D in the air?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 546191,
+      "question": "Is the water calm?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524637,
+      "question": "What is on the floor?",
+      "prediction": "tile",
+      "ground_truth": "nothing",
+      "correct": false
+    },
+    {
+      "image_id": 524637,
+      "question": "Are there magazines on the toilet tank?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524637,
+      "question": "What shape are the floor tiles?",
+      "prediction": "square",
+      "ground_truth": "diamond",
+      "correct": false
+    },
+    {
+      "image_id": 524637,
+      "question": "What is this object called?",
+      "prediction": "toilet",
+      "ground_truth": "toilet",
+      "correct": true
+    },
+    {
+      "image_id": 524637,
+      "question": "Is the floor tiled or hardwood?",
+      "prediction": "tiled",
+      "ground_truth": "tiled",
+      "correct": true
+    },
+    {
+      "image_id": 524637,
+      "question": "Is the toilet clean?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524637,
+      "question": "Is this a dormitory restroom?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524637,
+      "question": "What is missing on this toilet?",
+      "prediction": "seat",
+      "ground_truth": "nothing",
+      "correct": false
+    },
+    {
+      "image_id": 524638,
+      "question": "Is there a boy?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524638,
+      "question": "Is the boy dressed for sports?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524638,
+      "question": "What color is the frisbee?",
+      "prediction": "green",
+      "ground_truth": "green",
+      "correct": true
+    },
+    {
+      "image_id": 524638,
+      "question": "What is the boy holding in his hands?",
+      "prediction": "frisbee",
+      "ground_truth": "frisbee",
+      "correct": true
+    },
+    {
+      "image_id": 393569,
+      "question": "Is the bathroom clean?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 393569,
+      "question": "When is this taken?",
+      "prediction": "daytime",
+      "ground_truth": "in morning",
+      "correct": false
+    },
+    {
+      "image_id": 393569,
+      "question": "What is the girl using?",
+      "prediction": "laptop",
+      "ground_truth": "laptop",
+      "correct": true
+    },
+    {
+      "image_id": 524642,
+      "question": "Is the room cluttered?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524642,
+      "question": "How many cats?",
+      "prediction": "0",
+      "ground_truth": "0",
+      "correct": true
+    },
+    {
+      "image_id": 524642,
+      "question": "What continent is named on the book spine?",
+      "prediction": "europe",
+      "ground_truth": "africa",
+      "correct": false
+    },
+    {
+      "image_id": 524642,
+      "question": "What other items are on the shelf other than books?",
+      "prediction": "speakers",
+      "ground_truth": "boxes",
+      "correct": false
+    },
+    {
+      "image_id": 524642,
+      "question": "Is the lamp turned on?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524642,
+      "question": "How many books are there?",
+      "prediction": "many",
+      "ground_truth": "many",
+      "correct": true
+    },
+    {
+      "image_id": 524642,
+      "question": "The lamp would be good for helping a person do what while relaxing on the chair?",
+      "prediction": "reading",
+      "ground_truth": "read",
+      "correct": true
+    },
+    {
+      "image_id": 357,
+      "question": "Who are the men in black?",
+      "prediction": "umpires",
+      "ground_truth": "umpires",
+      "correct": true
+    },
+    {
+      "image_id": 357,
+      "question": "Is this a professional game?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 357,
+      "question": "How likely is it that the batter will hit a home run?",
+      "prediction": "not likely",
+      "ground_truth": "not likely",
+      "correct": true
+    },
+    {
+      "image_id": 359,
+      "question": "Overcast or sunny?",
+      "prediction": "overcast",
+      "ground_truth": "overcast",
+      "correct": true
+    },
+    {
+      "image_id": 359,
+      "question": "Is this a city?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 359,
+      "question": "Is this picture completely visible?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 360,
+      "question": "Are trees visible?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 360,
+      "question": "What is the person doing in the air?",
+      "prediction": "snowboarding",
+      "ground_truth": "snowboarding",
+      "correct": true
+    },
+    {
+      "image_id": 360,
+      "question": "Are the streetlamps on?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262505,
+      "question": "Are the cars on the road?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262505,
+      "question": "How many vehicles are shown?",
+      "prediction": "10",
+      "ground_truth": "6",
+      "correct": false
+    },
+    {
+      "image_id": 262505,
+      "question": "Is it cloudy?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262505,
+      "question": "Is this a busy street?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262505,
+      "question": "How many lines are painted in the street?",
+      "prediction": "2",
+      "ground_truth": "3",
+      "correct": false
+    },
+    {
+      "image_id": 262505,
+      "question": "Are they at an intersection?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393578,
+      "question": "Is this a train?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393578,
+      "question": "Is it night?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393578,
+      "question": "How many people can get on the bus?",
+      "prediction": "50",
+      "ground_truth": "50",
+      "correct": true
+    },
+    {
+      "image_id": 262509,
+      "question": "Are the boats seaworthy?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 262509,
+      "question": "Which building is the tallest?",
+      "prediction": "one in middle",
+      "ground_truth": "clock tower",
+      "correct": false
+    },
+    {
+      "image_id": 262509,
+      "question": "Is there a boat on the water?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262509,
+      "question": "Is the water clear?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262509,
+      "question": "How many trees are in the background?",
+      "prediction": "10",
+      "ground_truth": "9",
+      "correct": false
+    },
+    {
+      "image_id": 262509,
+      "question": "Where would the boat be going too?",
+      "prediction": "dock",
+      "ground_truth": "dock",
+      "correct": true
+    },
+    {
+      "image_id": 262509,
+      "question": "Is the river clear?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262509,
+      "question": "What color is the bimini?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 262509,
+      "question": "Does this city look crowded?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262509,
+      "question": "Where is the green boat located?",
+      "prediction": "in water",
+      "ground_truth": "water",
+      "correct": true
+    },
+    {
+      "image_id": 393583,
+      "question": "What does the red sign say?",
+      "prediction": "stop",
+      "ground_truth": "stop",
+      "correct": true
+    },
+    {
+      "image_id": 393583,
+      "question": "What would a person park here?",
+      "prediction": "car",
+      "ground_truth": "car",
+      "correct": true
+    },
+    {
+      "image_id": 393583,
+      "question": "What country is this taken in?",
+      "prediction": "israel",
+      "ground_truth": "iran",
+      "correct": false
+    },
+    {
+      "image_id": 393583,
+      "question": "What color is the sign?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 393583,
+      "question": "Was this picture taken in the United States?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524656,
+      "question": "Where would someone find something to dry their hands with in this photo?",
+      "prediction": "on oven",
+      "ground_truth": "microwave",
+      "correct": false
+    },
+    {
+      "image_id": 524656,
+      "question": "Are the dishes hand washed here?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524656,
+      "question": "Can you see through the cabinets?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 568040,
+      "question": "Is the elephants trunk curled?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 568040,
+      "question": "What kind of coat does the animal have?",
+      "prediction": "gray",
+      "ground_truth": "skin",
+      "correct": false
+    },
+    {
+      "image_id": 568040,
+      "question": "Do the elephants have tusks?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 568040,
+      "question": "What type of animal is shown?",
+      "prediction": "elephant",
+      "ground_truth": "elephant",
+      "correct": true
+    },
+    {
+      "image_id": 568040,
+      "question": "Are these animals living in the wild?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 568040,
+      "question": "Are the mountains in the background?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 568040,
+      "question": "How many animals are there?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 262514,
+      "question": "Is this toilet ready to use?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262514,
+      "question": "Is the woman dark haired?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262514,
+      "question": "What do you use these for?",
+      "prediction": "to use",
+      "ground_truth": "bathroom",
+      "correct": false
+    },
+    {
+      "image_id": 262514,
+      "question": "Is there probably running water in this toilet?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131444,
+      "question": "Has this man ever been President of the United States?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131444,
+      "question": "What color is the man's handkerchief?",
+      "prediction": "orange",
+      "ground_truth": "orange",
+      "correct": true
+    },
+    {
+      "image_id": 131444,
+      "question": "Do you like his tie?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 43753,
+      "question": "What does the man's clothes tell you about the weather?",
+      "prediction": "warm",
+      "ground_truth": "warm",
+      "correct": true
+    },
+    {
+      "image_id": 43753,
+      "question": "What is in the person's hand?",
+      "prediction": "banana",
+      "ground_truth": "banana",
+      "correct": true
+    },
+    {
+      "image_id": 43753,
+      "question": "Where is the man eating?",
+      "prediction": "banana shop",
+      "ground_truth": "banana",
+      "correct": true
+    },
+    {
+      "image_id": 43753,
+      "question": "What does the man's right hand position symbolize?",
+      "prediction": "stop",
+      "ground_truth": "don't shoot",
+      "correct": false
+    },
+    {
+      "image_id": 43753,
+      "question": "Is his man happy?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 43753,
+      "question": "What is on the man's head?",
+      "prediction": "headband",
+      "ground_truth": "hat",
+      "correct": false
+    },
+    {
+      "image_id": 43753,
+      "question": "What is the man holding?",
+      "prediction": "banana",
+      "ground_truth": "banana",
+      "correct": true
+    },
+    {
+      "image_id": 43753,
+      "question": "Is the man in real danger?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524665,
+      "question": "What are the subjects doing?",
+      "prediction": "hiking",
+      "ground_truth": "hiking",
+      "correct": true
+    },
+    {
+      "image_id": 524665,
+      "question": "Does it look dry?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524665,
+      "question": "What kind of animal is this?",
+      "prediction": "dog",
+      "ground_truth": "dog",
+      "correct": true
+    },
+    {
+      "image_id": 262522,
+      "question": "Is there a storm coming?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262522,
+      "question": "Is this building tall?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262522,
+      "question": "Was this taken at night?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131453,
+      "question": "Are these called bison?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131453,
+      "question": "Do all of the elephants have tusks?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131453,
+      "question": "Which size elephant is in the lead?",
+      "prediction": "large",
+      "ground_truth": "small",
+      "correct": false
+    },
+    {
+      "image_id": 131453,
+      "question": "How focused is the background in this picture?",
+      "prediction": "very",
+      "ground_truth": "not very",
+      "correct": true
+    },
+    {
+      "image_id": 131453,
+      "question": "Are any of the animals laying down?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262531,
+      "question": "Is anyone watching the skater?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262531,
+      "question": "What is the man in the hat doing?",
+      "prediction": "skateboarding",
+      "ground_truth": "skateboarding",
+      "correct": true
+    },
+    {
+      "image_id": 262531,
+      "question": "What thing is in focus?",
+      "prediction": "skateboarder",
+      "ground_truth": "skateboarder",
+      "correct": true
+    },
+    {
+      "image_id": 262531,
+      "question": "What color is the railing behind the boy?",
+      "prediction": "yellow",
+      "ground_truth": "yellow",
+      "correct": true
+    },
+    {
+      "image_id": 262531,
+      "question": "What color is the couch?",
+      "prediction": "red",
+      "ground_truth": "brown",
+      "correct": false
+    },
+    {
+      "image_id": 262531,
+      "question": "Can you see cars?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262531,
+      "question": "What is the man hitting with the racket?",
+      "prediction": "nothing",
+      "ground_truth": "ball",
+      "correct": false
+    },
+    {
+      "image_id": 262531,
+      "question": "How many vehicles are there?",
+      "prediction": "4",
+      "ground_truth": "4",
+      "correct": true
+    },
+    {
+      "image_id": 524681,
+      "question": "Is the woman standing?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524681,
+      "question": "What direction is the sun?",
+      "prediction": "west",
+      "ground_truth": "up",
+      "correct": false
+    },
+    {
+      "image_id": 524681,
+      "question": "What are they walking toward?",
+      "prediction": "kite",
+      "ground_truth": "kite",
+      "correct": true
+    },
+    {
+      "image_id": 524681,
+      "question": "How does the kite stay in open air?",
+      "prediction": "wind",
+      "ground_truth": "wind",
+      "correct": true
+    },
+    {
+      "image_id": 524681,
+      "question": "Why is it a good idea to use these in an open space?",
+      "prediction": "to fly",
+      "ground_truth": "wind",
+      "correct": false
+    },
+    {
+      "image_id": 524681,
+      "question": "How many people are there?",
+      "prediction": "10",
+      "ground_truth": "7",
+      "correct": false
+    },
+    {
+      "image_id": 524681,
+      "question": "What color is the grass?",
+      "prediction": "brown",
+      "ground_truth": "brown",
+      "correct": true
+    },
+    {
+      "image_id": 395,
+      "question": "What color is the man's jacket?",
+      "prediction": "orange",
+      "ground_truth": "orange",
+      "correct": true
+    },
+    {
+      "image_id": 395,
+      "question": "What is the man doing?",
+      "prediction": "talking on phone",
+      "ground_truth": "talking on phone",
+      "correct": true
+    },
+    {
+      "image_id": 395,
+      "question": "Is this an American?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 397,
+      "question": "What is the leafy substance?",
+      "prediction": "basil",
+      "ground_truth": "basil",
+      "correct": true
+    },
+    {
+      "image_id": 397,
+      "question": "What country did this food originate from?",
+      "prediction": "italy",
+      "ground_truth": "italy",
+      "correct": true
+    },
+    {
+      "image_id": 397,
+      "question": "What food item is shown?",
+      "prediction": "pizza",
+      "ground_truth": "pizza",
+      "correct": true
+    },
+    {
+      "image_id": 397,
+      "question": "What toppings are on the pizza?",
+      "prediction": "cheese and basil",
+      "ground_truth": "spinach",
+      "correct": false
+    },
+    {
+      "image_id": 400,
+      "question": "What is written on the boat?",
+      "prediction": "e 855 amt",
+      "ground_truth": "e-820 cr ms 815 aj",
+      "correct": false
+    },
+    {
+      "image_id": 400,
+      "question": "Is there a dog?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 400,
+      "question": "Who is on the boat?",
+      "prediction": "dog",
+      "ground_truth": "dog",
+      "correct": true
+    },
+    {
+      "image_id": 400,
+      "question": "Does the dog enjoy the boat ride?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524694,
+      "question": "Is the giraffe eating food?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524694,
+      "question": "Is the giraffe relaxing?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 524694,
+      "question": "Is the giraffe fully grown?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 524694,
+      "question": "Where is the giraffe?",
+      "prediction": "zoo",
+      "ground_truth": "zoo",
+      "correct": true
+    },
+    {
+      "image_id": 524702,
+      "question": "How many people are wearing socks?",
+      "prediction": "4",
+      "ground_truth": "3",
+      "correct": false
+    },
+    {
+      "image_id": 524702,
+      "question": "Are these girls dressed for bed?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524702,
+      "question": "Are the kids playing video games?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524702,
+      "question": "What are the girls doing?",
+      "prediction": "dancing",
+      "ground_truth": "dancing",
+      "correct": true
+    },
+    {
+      "image_id": 415,
+      "question": "Is the player right handed?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 415,
+      "question": "What shorts is the boy wearing?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 415,
+      "question": "Is he a professional athlete?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 415,
+      "question": "Who is the sponsor on the wall?",
+      "prediction": "emirates airline",
+      "ground_truth": "usta",
+      "correct": false
+    },
+    {
+      "image_id": 546203,
+      "question": "What time of year is this?",
+      "prediction": "winter",
+      "ground_truth": "winter",
+      "correct": true
+    },
+    {
+      "image_id": 546203,
+      "question": "Does this board have wheels?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 546203,
+      "question": "Can anyone ski in this place?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131493,
+      "question": "How many boats are on the water?",
+      "prediction": "5",
+      "ground_truth": "4",
+      "correct": false
+    },
+    {
+      "image_id": 131493,
+      "question": "What are the benches made of?",
+      "prediction": "metal",
+      "ground_truth": "metal",
+      "correct": true
+    },
+    {
+      "image_id": 131493,
+      "question": "What is the little train being used for?",
+      "prediction": "no train",
+      "ground_truth": "no train",
+      "correct": true
+    },
+    {
+      "image_id": 131493,
+      "question": "How many blue benches are visible in this photo?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 131493,
+      "question": "How many trees are in the foreground?",
+      "prediction": "1",
+      "ground_truth": "1",
+      "correct": true
+    },
+    {
+      "image_id": 131494,
+      "question": "What color is the motorcycle?",
+      "prediction": "black",
+      "ground_truth": "black",
+      "correct": true
+    },
+    {
+      "image_id": 131494,
+      "question": "Does everyone in this photo have facial hair?",
+      "prediction": "yes",
+      "ground_truth": "no",
+      "correct": false
+    },
+    {
+      "image_id": 131494,
+      "question": "Are the bikers all wearing helmets?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131497,
+      "question": "Is the dog's collar red?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131497,
+      "question": "What does the dog have on his head?",
+      "prediction": "bag",
+      "ground_truth": "dog bed",
+      "correct": false
+    },
+    {
+      "image_id": 131497,
+      "question": "Is the dog in distress?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 428,
+      "question": "What is around the baby's neck?",
+      "prediction": "tie",
+      "ground_truth": "tie",
+      "correct": true
+    },
+    {
+      "image_id": 428,
+      "question": "Is he going to need a bath soon?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 428,
+      "question": "What color are the balloons?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 393647,
+      "question": "What are the blue numbers on the bus?",
+      "prediction": "38",
+      "ground_truth": "2635",
+      "correct": false
+    },
+    {
+      "image_id": 393647,
+      "question": "What movie is advertised on the side of the bus?",
+      "prediction": "django",
+      "ground_truth": "django",
+      "correct": true
+    },
+    {
+      "image_id": 393647,
+      "question": "What is on the front of the bus?",
+      "prediction": "bike rack",
+      "ground_truth": "bike rack",
+      "correct": true
+    },
+    {
+      "image_id": 393647,
+      "question": "Is this photo taken in America?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393647,
+      "question": "What kind of vehicle is shown?",
+      "prediction": "bus",
+      "ground_truth": "bus",
+      "correct": true
+    },
+    {
+      "image_id": 393647,
+      "question": "Is this town in China?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393647,
+      "question": "What number route?",
+      "prediction": "38",
+      "ground_truth": "38",
+      "correct": true
+    },
+    {
+      "image_id": 262576,
+      "question": "What make and model is the laptop?",
+      "prediction": "apple macbook",
+      "ground_truth": "apple macbook",
+      "correct": true
+    },
+    {
+      "image_id": 262576,
+      "question": "Is the laptop on or off?",
+      "prediction": "on",
+      "ground_truth": "on",
+      "correct": true
+    },
+    {
+      "image_id": 262576,
+      "question": "Is the power connected to the laptop?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262576,
+      "question": "What color blanket is the laptop sitting on?",
+      "prediction": "blue",
+      "ground_truth": "blue",
+      "correct": true
+    },
+    {
+      "image_id": 524725,
+      "question": "Is there snow in the picture?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 524725,
+      "question": "How many parking meters do you see?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 524725,
+      "question": "Are the parking meters being used?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 73,
+      "question": "What is the license number?",
+      "prediction": "blw969",
+      "ground_truth": "sv-6260",
+      "correct": false
+    },
+    {
+      "image_id": 73,
+      "question": "Is this a motorcycle or bike?",
+      "prediction": "motorcycle",
+      "ground_truth": "motorcycle",
+      "correct": true
+    },
+    {
+      "image_id": 73,
+      "question": "What color is the bike?",
+      "prediction": "black",
+      "ground_truth": "black",
+      "correct": true
+    },
+    {
+      "image_id": 73,
+      "question": "What letter and 3 numbers are on the tag?",
+      "prediction": "blw969",
+      "ground_truth": "sv-6260",
+      "correct": false
+    },
+    {
+      "image_id": 393659,
+      "question": "Are the lights on?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393659,
+      "question": "How many sinks are there?",
+      "prediction": "2",
+      "ground_truth": "2",
+      "correct": true
+    },
+    {
+      "image_id": 393659,
+      "question": "How many towels can you see in the picture?",
+      "prediction": "2",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 131516,
+      "question": "Can all of the body parts of this stuffed animal be seen?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131516,
+      "question": "Is this a real animal?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131516,
+      "question": "Is there a forlorn quality to this picture?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262594,
+      "question": "What color are the rider's gloves?",
+      "prediction": "black",
+      "ground_truth": "black",
+      "correct": true
+    },
+    {
+      "image_id": 262594,
+      "question": "What color is the bike?",
+      "prediction": "purple",
+      "ground_truth": "purple",
+      "correct": true
+    },
+    {
+      "image_id": 262594,
+      "question": "What is written on the front of the bike?",
+      "prediction": "fh096",
+      "ground_truth": "fh 2949",
+      "correct": false
+    },
+    {
+      "image_id": 524742,
+      "question": "What color is the wall?",
+      "prediction": "blue yellow red and white",
+      "ground_truth": "yellow",
+      "correct": true
+    },
+    {
+      "image_id": 524742,
+      "question": "What type of art is this?",
+      "prediction": "graffiti",
+      "ground_truth": "graffiti",
+      "correct": true
+    },
+    {
+      "image_id": 524742,
+      "question": "Is this type of art legal?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131527,
+      "question": "Is this vegetable cooked?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131527,
+      "question": "Are these good for nibbling?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131527,
+      "question": "What vegetable is this?",
+      "prediction": "broccoli",
+      "ground_truth": "broccoli",
+      "correct": true
+    },
+    {
+      "image_id": 131527,
+      "question": "What is the is the light green vegetable on the left?",
+      "prediction": "broccoli",
+      "ground_truth": "broccoli",
+      "correct": true
+    },
+    {
+      "image_id": 393674,
+      "question": "Is this a little league baseball player?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393674,
+      "question": "Are the stands full?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 393674,
+      "question": "What sport is this person playing if your in America?",
+      "prediction": "baseball",
+      "ground_truth": "baseball",
+      "correct": true
+    },
+    {
+      "image_id": 393674,
+      "question": "What color is his shirt?",
+      "prediction": "black",
+      "ground_truth": "black",
+      "correct": true
+    },
+    {
+      "image_id": 393674,
+      "question": "What letters are on the person's shirt?",
+      "prediction": "sf",
+      "ground_truth": "50",
+      "correct": false
+    },
+    {
+      "image_id": 393674,
+      "question": "Can you see home plate?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 459,
+      "question": "What is the man holding?",
+      "prediction": "camera",
+      "ground_truth": "camera",
+      "correct": true
+    },
+    {
+      "image_id": 459,
+      "question": "What is around the man's neck?",
+      "prediction": "tie",
+      "ground_truth": "tie",
+      "correct": true
+    },
+    {
+      "image_id": 459,
+      "question": "Is there a camera?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 459,
+      "question": "Did the man take this photo of himself?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "What color are the walls?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "Does this child need more responsibilities?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "What is the person throwing?",
+      "prediction": "hat",
+      "ground_truth": "hat",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "Is this safe?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "What are the black squares for?",
+      "prediction": "pictures",
+      "ground_truth": "none",
+      "correct": false
+    },
+    {
+      "image_id": 262605,
+      "question": "How many framed pictures are there?",
+      "prediction": "2",
+      "ground_truth": "1",
+      "correct": false
+    },
+    {
+      "image_id": 262605,
+      "question": "Where is the light switch?",
+      "prediction": "on wall",
+      "ground_truth": "on wall",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "Is there a bike in this room?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "Is there anyone in the room?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "What is the subject of the painting?",
+      "prediction": "abstract",
+      "ground_truth": "people",
+      "correct": false
+    },
+    {
+      "image_id": 262605,
+      "question": "How many blades does the ceiling fan have?",
+      "prediction": "4",
+      "ground_truth": "4",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "Are  both doors open?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262605,
+      "question": "Is this America?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "What is this?",
+      "prediction": "food",
+      "ground_truth": "food",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Is this a meal for a child?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Is this a sandwich with a bun?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Is rice part of this meal?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Is this food cheesy?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Is this a healthy dish?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Of which ethnic cuisine is this dish a likely representative?",
+      "prediction": "american",
+      "ground_truth": "american",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Would a vegan eat this?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "Are there onions on this plate?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262608,
+      "question": "What color is the plate?",
+      "prediction": "white",
+      "ground_truth": "white",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "Are the vehicles driving towards the cameras?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    },
+    {
+      "image_id": 262609,
+      "question": "Are people in the crosswalk?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "What is the lady walking?",
+      "prediction": "crosswalk",
+      "ground_truth": "crosswalk",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "What color is the woman's bag?",
+      "prediction": "black",
+      "ground_truth": "black",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "What are the words on the building?",
+      "prediction": "apple",
+      "ground_truth": "apple",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "Are there people waiting to cross the street?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "What color is the traffic light?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "What color is the woman wearing?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "Where does the arrow point?",
+      "prediction": "up",
+      "ground_truth": "up",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "Are there a lot of cars parked on the street?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "How many lines are in the crosswalk?",
+      "prediction": "10",
+      "ground_truth": "10",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "Where is the apple emblem?",
+      "prediction": "on building",
+      "ground_truth": "building",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "Is there any cars on the street?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 262609,
+      "question": "Is this street straight?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 393682,
+      "question": "What is on the plate?",
+      "prediction": "cake",
+      "ground_truth": "cheesecake",
+      "correct": true
+    },
+    {
+      "image_id": 393682,
+      "question": "What is the white substance on the left side of the plate and on top of the cake?",
+      "prediction": "whipped cream",
+      "ground_truth": "whipped cream",
+      "correct": true
+    },
+    {
+      "image_id": 393682,
+      "question": "What food is on the plate?",
+      "prediction": "cheesecake",
+      "ground_truth": "cheesecake",
+      "correct": true
+    },
+    {
+      "image_id": 393682,
+      "question": "Is that a fork or knife sticking out of the mixture?",
+      "prediction": "fork",
+      "ground_truth": "fork",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Are they doing the same sport?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Did these people run into each other?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Has this area been windy lately?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Is this the morning?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Are these skiers using a chair lift?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "What color is the closest skier's jacket?",
+      "prediction": "red",
+      "ground_truth": "red",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Are they having fun?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Are there any clouds in the sky?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Is it summer?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "Are there any trees visible?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 131539,
+      "question": "What are the people doing?",
+      "prediction": "skiing",
+      "ground_truth": "skiing",
+      "correct": true
+    },
+    {
+      "image_id": 472,
+      "question": "Is that an airplane in the image?",
+      "prediction": "yes",
+      "ground_truth": "yes",
+      "correct": true
+    },
+    {
+      "image_id": 472,
+      "question": "Is the island inhabited?",
+      "prediction": "no",
+      "ground_truth": "no",
+      "correct": true
+    },
+    {
+      "image_id": 472,
+      "question": "Are the blue patches water?",
+      "prediction": "no",
+      "ground_truth": "yes",
+      "correct": false
+    }
+  ]
+}

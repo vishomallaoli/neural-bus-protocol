@@ -1,8 +1,18 @@
 #!/usr/bin/env python3
 """
-Training Script (Research Grade)
-Neural BUS Adapters via Knowledge Distillation from BLIP-2 → Mistral
-FAST VERSION: batched teacher/student forward + prompt truncation
+Training Script (Supervised, Student-Only)
+
+Neural BUS Adapters trained with a frozen LLM (e.g., DistilGPT2).
+- No BLIP-2 / BLIP-VQA in the training loop.
+- Only the BUS encoder/decoder adapters receive gradients.
+- The LLM remains frozen and is used via a soft prompt (BUS vector).
+
+Expected VQADataset batch format:
+    {
+        "image":    torch.Tensor [B, 3, H, W],
+        "question": list[str],
+        "answer":   list[str],
+    }
 """
 
 from pathlib import Path
@@ -14,52 +24,47 @@ import torch.nn as nn
 import torch.optim as optim
 from torch.utils.data import DataLoader
 from tqdm import tqdm
-from torchvision.transforms.functional import to_pil_image
 
 from pipeline import NeuralBUSPipeline
 from data.vqa import VQADataset
 
 
-# ------------------------------------------------------------
-# Utilities
-# ------------------------------------------------------------
-def _pad_logits_to_max(seq_list: List[torch.Tensor]) -> torch.Tensor:
-    """
-    Pad a list of [T, V] tensors to [B, Tmax, V] with zeros.
-    """
-    if len(seq_list) == 0:
-        raise ValueError("seq_list is empty")
-    maxT = max(t.size(0) for t in seq_list)
-    V = seq_list[0].size(-1)
-    device, dtype = seq_list[0].device, seq_list[0].dtype
-    out = torch.zeros(len(seq_list), maxT, V, device=device, dtype=dtype)
-    for i, t in enumerate(seq_list):
-        out[i, : t.size(0)] = t
-    return out
+def count_trainable(model):
+    return sum(p.numel() for p in model.parameters() if p.requires_grad)
 
 
 # ============================================================
 # Trainer
 # ============================================================
 class Trainer:
-    """Train encoder & decoder adapters with vocabulary-aligned KD loss."""
+    """
+    Train encoder & decoder adapters with supervised loss
+    against ground-truth answers, using a frozen LLM.
+
+    Trainable:
+      - pipeline.encoder  (BUS encoder)
+      - pipeline.decoder  (BUS → LLM hidden size)
+
+    Frozen:
+      - pipeline.vision_encoder
+      - pipeline.llm.model (e.g., DistilGPT2)
+    """
 
     def __init__(
         self,
         pipeline: NeuralBUSPipeline,
         learning_rate: float = 1e-4,
-        max_len_teacher: int = 64,
         max_len_student: int = 128,
     ):
         self.pipeline = pipeline
         self.device = pipeline.device
-        self.max_len_teacher = int(max_len_teacher)
         self.max_len_student = int(max_len_student)
 
+        # Optimizer over BUS adapters only
         self.optimizer = optim.AdamW(
             [
-                {"params": pipeline.encoder.parameters()},
-                {"params": pipeline.decoder.parameters()},
+                {"params": self.pipeline.encoder.parameters()},
+                {"params": self.pipeline.decoder.parameters()},
             ],
             lr=learning_rate,
         )
@@ -68,229 +73,160 @@ class Trainer:
         for p in self.pipeline.llm.model.parameters():
             p.requires_grad_(False)
 
-        # -------------------------------------------------------
-        # Teacher (BLIP-2) setup
-        # -------------------------------------------------------
-        try:
-            from transformers import (
-                Blip2Processor,
-                Blip2ForConditionalGeneration,
-                AutoTokenizer,
+        # Convenience handle: we always use the LLM's tokenizer
+        self.tokenizer = self.pipeline.llm.tokenizer
+        if self.tokenizer.pad_token is None:
+            self.tokenizer.pad_token = self.tokenizer.eos_token
+        self.pad_token_id = self.tokenizer.pad_token_id
+
+        print("\n[Trainer] Initialized (student-only, supervised)")
+        print(f"  Device: {self.device}")
+        print(f"  Max student length: {self.max_len_student}")
+        print(f"  Pad token id: {self.pad_token_id}")
+
+    # ---------------- internal helpers ----------------
+    def _format_prompt(self, question: str) -> str:
+        """
+        Use the same prompt formatting as the decoder for consistency.
+        We assume decoder.format_prompt(caption, question) exists.
+        For training we pass an empty caption.
+        """
+        return self.pipeline.decoder.format_prompt("", question)
+
+    def _build_texts(
+        self,
+        questions: List[str],
+        answers: List[str],
+    ) -> (List[str], List[str]):
+        """
+        Build:
+          - prefixes: prompt text up to 'Answer:' (or equivalent)
+          - full_texts: prefix + actual ground-truth answer
+        """
+        prefixes = [self._format_prompt(q) for q in questions]
+        full_texts = [f"{p} {a}" for p, a in zip(prefixes, answers)]
+        return prefixes, full_texts
+
+    # ---------------- core training step ----------------
+    def train_step(self, batch) -> float:
+        self.pipeline.encoder.train()
+        self.pipeline.decoder.train()
+        self.optimizer.zero_grad()
+
+        if "answer" not in batch:
+            raise KeyError(
+                f"Batch is missing 'answer' field for supervised training. "
+                f"Got keys: {list(batch.keys())}"
             )
 
-            print("\n[Teacher] Loading BLIP-2 teacher model...")
-            # Fast image processor where available
-            self.teacher_processor = Blip2Processor.from_pretrained(
-                "Salesforce/blip2-opt-2.7b",
-                use_fast=True,
-            )
+        images = batch["image"]          # [B,3,H,W]
+        questions = batch["question"]    # list[str]
+        answers = batch["answer"]        # list[str]
 
-            # fp16 only on CUDA; fp32 elsewhere
-            _dtype = torch.float16 if self.device == "cuda" else torch.float32
-            self.teacher_model = Blip2ForConditionalGeneration.from_pretrained(
-                "Salesforce/blip2-opt-2.7b",
-                dtype=_dtype,  # deprecation-safe; replaces torch_dtype
-                low_cpu_mem_usage=True,
-            ).to(self.device)
-            self.teacher_model.eval()
-            print("✅ Teacher model loaded successfully")
+        # ---------------- vision → BUS → soft prompt ----------------
+        # 1) Vision features
+        vision_features = self.pipeline.vision_encoder.encode(images)   # [B, Dv]
 
-            # ---------------- vocab alignment -------------------
-            print("[Align] Building teacher→student vocabulary map...")
-            self.teacher_tokenizer = AutoTokenizer.from_pretrained("Salesforce/blip2-opt-2.7b")
-            self.student_tokenizer = AutoTokenizer.from_pretrained(
-                "mistralai/Mistral-7B-Instruct-v0.2"
-            )
+        # 2) BUS vector via adapters
+        bus_vector = self.pipeline.encoder(vision_features)             # [B, 512] (or similar)
+        llm_embedding = self.pipeline.decoder(bus_vector)               # [B, H]
 
-            Vt = int(self.teacher_model.config.vocab_size)  # teacher model vocab size
-            student_vocab = self.student_tokenizer.get_vocab()
-            unk_id = self.student_tokenizer.unk_token_id
+        # ---------------- text encoding ----------------
+        prefixes, full_texts = self._build_texts(questions, answers)
 
-            toks = self.teacher_tokenizer.convert_ids_to_tokens(list(range(Vt)))
-            mapping = torch.full((Vt,), fill_value=unk_id, dtype=torch.long)
-            for i, tok in enumerate(toks):
-                if tok is None:
-                    continue
-                mapping[i] = student_vocab.get(tok, unk_id)
-
-            self.teacher_to_student_map = mapping.to(self.device)
-            print(f"✅ Vocabulary map built using model vocab: {Vt} teacher ids aligned.")
-            self.use_teacher = True
-
-        except Exception as e:
-            print(f"⚠️  Could not load BLIP-2 teacher model ({e}). Using random logits.")
-            self.use_teacher = False
-
-        print(f"✅ Trainer initialized (lr={learning_rate})")
-
-    # ---------------- batched forwards (FAST) ----------------
-    def _batch_teacher_logits(self, images: torch.Tensor, questions: List[str]) -> torch.Tensor:
-        """
-        Batched teacher forward:
-            images: [B,3,224,224] in [0,1]
-            returns: [B, Tt, Vt]
-        """
-        if not self.use_teacher:
-            B = images.size(0)
-            return torch.randn(B, 50, 32000, device=self.device)
-
-        pil_list = [to_pil_image(images[i].clamp(0, 1)) for i in range(images.size(0))]
-        prompts = [f"Question: {q}\nAnswer:" for q in questions]
-
-        inputs = self.teacher_processor(
-            images=pil_list,
-            text=prompts,
-            return_tensors="pt",
-            padding=True,
-            truncation=True,
-            max_length=self.max_len_teacher,
-        ).to(self.device)
-
-        with torch.no_grad():
-            outputs = self.teacher_model(**inputs)
-        return outputs.logits  # [B, Tt, Vt]
-
-    def _batch_student_logits(self, images: torch.Tensor, questions: List[str]) -> torch.Tensor:
-        """
-        Batched student forward with frozen LLM:
-            images: [B,3,224,224]
-            returns: [B, Ts, Vs]
-        """
-        # 1) Vision features (batched)
-        vision_features = self.pipeline.vision_encoder.encode(images)  # [B,2048]
-
-        # 2) BUS vector via adapters (grad flows through adapters)
-        bus_vector = self.pipeline.encoder.forward(vision_features)    # [B,512]
-        llm_embedding = self.pipeline.decoder.forward(bus_vector)      # [B,4096]
-
-        # 3) Build prompts (skip captions during training)
-        prompts = [self.pipeline.decoder.format_prompt("", q) for q in questions]
-
-        # 4) Tokenize as a batch
-        tok = self.pipeline.tokenizer(
-            prompts,
+        tok = self.tokenizer(
+            full_texts,
             return_tensors="pt",
             padding=True,
             truncation=True,
             max_length=self.max_len_student,
         )
-        input_ids = tok["input_ids"].to(self.device)
-        attn_mask = tok.get("attention_mask", torch.ones_like(input_ids)).to(self.device)
+        input_ids = tok["input_ids"].to(self.device)         # [B, T]
+        attn_mask = tok["attention_mask"].to(self.device)    # [B, T]
 
-        # 5) Token embeddings from frozen LLM
-        tok_emb = self.pipeline.llm.model.get_input_embeddings()(input_ids)  # [B,T,H]
+        B, T = input_ids.shape
 
-        # 6) Soft prompt
-        llm_embedding = llm_embedding.to(tok_emb.device, dtype=tok_emb.dtype)  # [B,H]
-        soft_prompt = llm_embedding.unsqueeze(1)                                # [B,1,H]
+        # Build labels: ignore prompt tokens with -100
+        labels = input_ids.clone()
 
-        # 7) Concatenate and forward LLM (frozen) — keep grads for adapters
-        inputs_embeds = torch.cat([soft_prompt, tok_emb.detach()], dim=1)       # [B,1+T,H]
-        extra = torch.ones((attn_mask.size(0), 1), dtype=attn_mask.dtype, device=attn_mask.device)
-        attn_mask = torch.cat([extra, attn_mask], dim=1)
+        for i, prefix in enumerate(prefixes):
+            with torch.no_grad():
+                prefix_ids = self.tokenizer(
+                    prefix,
+                    truncation=True,
+                    max_length=self.max_len_student,
+                    return_tensors="pt",
+                )["input_ids"][0]
+                prefix_len = int(prefix_ids.size(0))
 
-        outputs = self.pipeline.llm.model(inputs_embeds=inputs_embeds, attention_mask=attn_mask)
-        return outputs.logits  # [B, 1+T, Vs]
+            seq_len = int(attn_mask[i].sum().item())
+            cut = min(prefix_len, seq_len)
+            labels[i, :cut] = -100  # ignore prompt tokens
 
-    # ---------------- alignment ----------------
-    def align_teacher_logits(self, teacher_logits: torch.Tensor, student_vocab_size: int) -> torch.Tensor:
-        """
-        Project teacher logits (vocab_t) → student space (vocab_s) via scatter_add.
-        Rebuild mapping if sizes diverge.
-        """
-        Vt = teacher_logits.size(-1)
+        # ---------------- LLM forward with soft prompt ----------------
+        tok_emb = self.pipeline.llm.model.get_input_embeddings()(input_ids)  # [B, T, H]
+        tok_emb = tok_emb.detach()
 
-        if (not hasattr(self, "teacher_to_student_map")) or (
-            self.teacher_to_student_map.numel() != Vt
-        ):
-            print("ℹ️ Rebuilding teacher→student map to match current teacher vocab size...")
-            student_vocab = self.student_tokenizer.get_vocab()
-            unk_id = self.student_tokenizer.unk_token_id
-            toks = self.teacher_tokenizer.convert_ids_to_tokens(list(range(Vt)))
-            mapping = torch.full((Vt,), fill_value=unk_id, dtype=torch.long)
-            for i, tok in enumerate(toks):
-                if tok is None:
-                    continue
-                mapping[i] = student_vocab.get(tok, unk_id)
-            self.teacher_to_student_map = mapping.to(self.device)
+        llm_embedding = llm_embedding.to(tok_emb.device, dtype=tok_emb.dtype)  # [B, H]
+        soft_prompt = llm_embedding.unsqueeze(1)                                # [B, 1, H]
 
-        B, Tt, _ = teacher_logits.shape
-        Vs = student_vocab_size
-        aligned = torch.zeros(B, Tt, Vs, device=teacher_logits.device, dtype=teacher_logits.dtype)
+        inputs_embeds = torch.cat([soft_prompt, tok_emb], dim=1)                # [B, 1+T, H]
 
-        idx = self.teacher_to_student_map.view(1, 1, -1).expand(B, Tt, -1)
-        aligned.scatter_add_(2, idx, teacher_logits)
-        return aligned
+        extra_mask = torch.ones(
+            (attn_mask.size(0), 1),
+            dtype=attn_mask.dtype,
+            device=attn_mask.device,
+        )
+        attn_mask_ext = torch.cat([extra_mask, attn_mask], dim=1)               # [B, 1+T]
 
-    # ---------------- train step ----------------
-    def train_step(self, batch):
-        self.optimizer.zero_grad()
+        labels_ext = torch.cat(
+            [
+                torch.full(
+                    (labels.size(0), 1),
+                    -100,
+                    dtype=labels.dtype,
+                    device=labels.device,
+                ),
+                labels,
+            ],
+            dim=1,
+        )  # [B, 1+T]
 
-        images = batch["image"]          # [B,3,224,224]
-        questions = batch["question"]    # list[str]
+        outputs = self.pipeline.llm.model(
+            inputs_embeds=inputs_embeds,
+            attention_mask=attn_mask_ext,
+            labels=labels_ext,
+        )
 
-        # Batched forwards (FAST)
-        teacher_logits = self._batch_teacher_logits(images, questions)    # [B,Tt,Vt]
-        student_logits = self._batch_student_logits(images, questions)    # [B,Ts,Vs]
+        loss = outputs.loss
 
-        # Align vocabularies: BLIP-2 (teacher) -> student vocab
-        teacher_logits = self.align_teacher_logits(
-            teacher_logits, student_logits.size(-1)
-        )  # [B,Tt,Vs]
-
-        # ---------------------------------------------------
-        # Knowledge Distillation loss (length + dtype aligned)
-        # ---------------------------------------------------
-        import torch.nn.functional as F
-
-        # 1) Align sequence lengths
-        seq_len = min(student_logits.size(1), teacher_logits.size(1))
-        student_logits = student_logits[:, :seq_len, :]
-        teacher_logits = teacher_logits[:, :seq_len, :]
-
-        # 2) Float32 for stability
-        student_logits = student_logits.to(torch.float32)
-        teacher_logits = teacher_logits.to(torch.float32)
-
-        # Guard against inf/NaN
-        student_logits = torch.nan_to_num(student_logits, nan=0.0, posinf=50.0, neginf=-50.0)
-        teacher_logits = torch.nan_to_num(teacher_logits, nan=0.0, posinf=50.0, neginf=-50.0)
-
-        student_logits = student_logits.clamp(min=-50.0, max=50.0)
-        teacher_logits = teacher_logits.clamp(min=-50.0, max=50.0)
-
-        # 3) Temperature softening
-        temperature = 2.0
-        B, T, V = student_logits.shape
-        student_logp = F.log_softmax(student_logits / temperature, dim=-1).view(B * T, V)
-        teacher_p    = F.softmax(teacher_logits  / temperature, dim=-1).view(B * T, V)
-
-        loss = F.kl_div(student_logp, teacher_p, reduction="batchmean") * (temperature ** 2)
-
+        # Backprop only through adapters
         loss.backward()
         torch.nn.utils.clip_grad_norm_(
-            list(self.pipeline.encoder.parameters()) + list(self.pipeline.decoder.parameters()),
-            1.0,
+            list(self.pipeline.encoder.parameters())
+            + list(self.pipeline.decoder.parameters()),
+            max_norm=1.0,
         )
         self.optimizer.step()
 
-        return loss.item()
+        return float(loss.detach().cpu())
 
-    # ---------------- epoch ----------------
-    def train_epoch(self, dataloader, epoch):
+    # ---------------- epoch loop ----------------
+    def train_epoch(self, dataloader, epoch: int) -> float:
         self.pipeline.encoder.train()
         self.pipeline.decoder.train()
-        total_loss = 0.0
 
+        total_loss = 0.0
         pbar = tqdm(dataloader, desc=f"Epoch {epoch}")
         for batch in pbar:
             loss = self.train_step(batch)
             total_loss += loss
-            pbar.set_postfix({"loss": f"{loss:.4f}"})
+            pbar.set_postfix(loss=loss)
 
-        return total_loss / max(1, len(dataloader))
+        avg_loss = total_loss / max(1, len(dataloader))
+        return avg_loss
 
-    # ---------------- ckpt ----------------
+    # ---------------- checkpointing ----------------
     def save_checkpoint(self, path: str):
         Path(path).parent.mkdir(parents=True, exist_ok=True)
         torch.save(
@@ -308,17 +244,21 @@ class Trainer:
 # Main
 # ============================================================
 def main():
-    parser = argparse.ArgumentParser(description="Train Neural BUS (FAST KD)")
+    parser = argparse.ArgumentParser(description="Train Neural BUS (Supervised Student-Only)")
     parser.add_argument("--epochs", type=int, default=1)
     parser.add_argument("--batch-size", type=int, default=2)
     parser.add_argument("--lr", type=float, default=1e-4)
-    parser.add_argument("--subset", type=int, default=10)
+    parser.add_argument("--subset", type=int, default=1000)
     parser.add_argument("--device", type=str, default="cpu", choices=["cpu", "cuda", "mps"])
     parser.add_argument("--split", type=str, default="train", choices=["train", "val"])
     parser.add_argument("--checkpoint-dir", type=str, default="./checkpoints")
     parser.add_argument("--num-workers", type=int, default=0)
-    parser.add_argument("--max-len-teacher", type=int, default=64, help="truncate teacher text tokens")
-    parser.add_argument("--max-len-student", type=int, default=128, help="truncate student prompt tokens")
+    parser.add_argument(
+        "--max-len-student",
+        type=int,
+        default=128,
+        help="Truncate student prompt+answer tokens to this length.",
+    )
 
     args = parser.parse_args()
 
@@ -326,50 +266,65 @@ def main():
         torch.backends.cudnn.benchmark = True
 
     print("\n" + "=" * 70)
-    print(" " * 25 + "NEURAL BUS TRAINING (FAST)")
+    print(" " * 20 + "NEURAL BUS TRAINING (STUDENT-ONLY)")
     print("=" * 70)
     print(f"\nEpochs: {args.epochs}")
     print(f"Batch Size: {args.batch_size}")
     print(f"Learning Rate: {args.lr}")
     print(f"Subset: {args.subset}")
+    print(f"Split: {args.split}")
     print(f"Device (requested): {args.device}")
 
+    # ---------------- dataset & dataloader ----------------
     print("\nLoading dataset...")
-    dataset = VQADataset(split=args.split, subset_size=args.subset)
+    subset_size = args.subset if args.subset > 0 else None
+    dataset = VQADataset(split=args.split, subset_size=subset_size)
+
     pin_memory = (args.device == "cuda")
     persistent = args.num_workers > 0
+
     dataloader = DataLoader(
         dataset,
         batch_size=args.batch_size,
         shuffle=True,
         num_workers=args.num_workers,
-        persistent_workers=persistent,
         pin_memory=pin_memory,
+        persistent_workers=persistent,
     )
 
+    # ---------------- pipeline ----------------
     print("\nInitializing pipeline...")
-    pipeline = NeuralBUSPipeline(device=args.device, use_mock=False)  # no demo/mock mode
+    pipeline = NeuralBUSPipeline(device=args.device, use_mock=False)
     print(f"Resolved device in pipeline: {pipeline.device}")
 
+    # Print trainable parameter counts for sanity check
+    print("Trainable params - encoder:", count_trainable(pipeline.encoder))
+    print("Trainable params - decoder:", count_trainable(pipeline.decoder))
+    print("Trainable params - vision:", count_trainable(pipeline.vision_encoder))
+    print("Trainable params - llm:", count_trainable(pipeline.llm.model))
+
     trainer = Trainer(
-        pipeline,
+        pipeline=pipeline,
         learning_rate=args.lr,
-        max_len_teacher=args.max_len_teacher,
         max_len_student=args.max_len_student,
     )
 
-    print("\n" + "=" * 70)
-    print(" " * 28 + "TRAINING")
-    print("=" * 70 + "\n")
+    print("\nStarting training...\n")
+
+    # ---- loss history for plotting later ----
+    loss_history = []
 
     for epoch in range(1, args.epochs + 1):
-        print(f"\nEpoch {epoch}/{args.epochs}")
         print("-" * 70)
         avg_loss = trainer.train_epoch(dataloader, epoch)
-        print(f"Average Loss: {avg_loss:.4f}")
+        print(f"Average Loss (epoch {epoch}): {avg_loss:.4f}")
 
-        ckpt = f"{args.checkpoint_dir}/checkpoint_epoch_{epoch}.pt"
-        trainer.save_checkpoint(ckpt)
+        loss_history.append(avg_loss)
+
+        ckpt_path = f"{args.checkpoint_dir}/checkpoint_epoch_{epoch}.pt"
+        trainer.save_checkpoint(ckpt_path)
+
+    print("\nLoss history by epoch:", loss_history)
 
     print("\n" + "=" * 70)
     print("Training Complete! ✅")
@@ -378,3 +333,4 @@ def main():
 
 if __name__ == "__main__":
     main()
+

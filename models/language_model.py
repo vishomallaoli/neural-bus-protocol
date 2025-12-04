@@ -12,7 +12,7 @@ class LanguageModel:
 
     def __init__(
         self,
-        model_name: str = "mistralai/Mistral-7B-Instruct-v0.2",
+        model_name: str = "gpt2",
         device: str = "cpu",
     ):
         self.device = device
@@ -28,15 +28,16 @@ class LanguageModel:
         self.tokenizer.padding_side = "left"
 
         # --- Dtype selection ---
-        # Use fp16 on cuda/mps where it’s supported; fp32 on cpu
+        # Use fp16 on cuda/mps where itâ€™s supported; fp32 on cpu
         dtype = torch.float16 if device == "cuda" else torch.float32
 
         # --- Model ---
         self.model = AutoModelForCausalLM.from_pretrained(
             model_name,
-            torch_dtype=dtype,
+            dtype=dtype,
             low_cpu_mem_usage=True,
         )
+        self.model.config.pad_token_id = self.tokenizer.pad_token_id
 
         # Always move model to target device *and* dtype explicitly
         # (This helps avoid "placeholder storage not allocated" on MPS.)
@@ -46,7 +47,7 @@ class LanguageModel:
         self.hidden_size = int(self.model.config.hidden_size)
         self.vocab_size = int(self.model.config.vocab_size)
         print(
-            f"✅ LLM loaded (hidden_size={self.hidden_size}, "
+            f"âœ… LLM loaded (hidden_size={self.hidden_size}, "
             f"vocab_size={self.vocab_size}, device={self.device}, dtype={dtype})"
         )
 
@@ -69,23 +70,34 @@ class LanguageModel:
     def generate(self, prompt: str, max_new_tokens: int = 50) -> str:
         """
         Generate an answer from a prompt (inference mode).
-        Only decodes the *new* tokens, not the whole prompt again.
+        Uses manual generation loop to avoid M1 Mac bus errors with model.generate().
         """
         inputs = self._to_device(self.tokenizer(prompt, return_tensors="pt"))
-
+        input_ids = inputs["input_ids"]
+        
+        # Manual generation loop (M1 Mac workaround)
+        generated_ids = input_ids.clone()
+        
         with torch.no_grad():
-            output_ids = self.model.generate(
-                **inputs,
-                max_new_tokens=max_new_tokens,
-                do_sample=True,
-                temperature=0.7,
-                pad_token_id=self.tokenizer.pad_token_id,
-                eos_token_id=self.tokenizer.eos_token_id,
-            )
-
+            for _ in range(max_new_tokens):
+                # Get logits for current sequence
+                outputs = self.model(input_ids=generated_ids)
+                next_token_logits = outputs.logits[:, -1, :]
+                
+                # Greedy decoding (most probable token)
+                # Using greedy instead of sampling to avoid additional M1 issues
+                next_token_id = torch.argmax(next_token_logits, dim=-1, keepdim=True)
+                
+                # Stop if we generate EOS token
+                if next_token_id.item() == self.tokenizer.eos_token_id:
+                    break
+                
+                # Append to sequence
+                generated_ids = torch.cat([generated_ids, next_token_id], dim=-1)
+        
         # Decode only the newly generated tokens
-        prompt_len = inputs["input_ids"].shape[1]
-        new_token_ids = output_ids[0][prompt_len:]
+        prompt_len = input_ids.shape[1]
+        new_token_ids = generated_ids[0][prompt_len:]
         answer = self.tokenizer.decode(new_token_ids, skip_special_tokens=True).strip()
         return answer
 
@@ -117,7 +129,7 @@ class MockLLM:
         self.model_name = "mock"
         self.hidden_size = 4096
         self.vocab_size = 32000
-        print("✅ Mock LLM loaded")
+        print("âœ… Mock LLM loaded")
 
         # Provide a tiny config-like object so evaluators can read vocab_size
         class _Cfg:
@@ -190,7 +202,7 @@ if __name__ == "__main__":
     llm = MockLLM()
     test_prompt = "[INST] What color is the cup? [/INST]"
     answer = llm.generate(test_prompt)
-    print(f"✅ Generated answer: '{answer}'")
+    print(f"âœ… Generated answer: '{answer}'")
 
     logits = llm.get_logits(test_prompt)
-    print(f"✅ Logits shape: {logits.shape}")
+    print(f"âœ… Logits shape: {logits.shape}")
