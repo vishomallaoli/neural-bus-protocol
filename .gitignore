@@ -83,7 +83,7 @@ wandb/
 # --- Demo & Generated Media ---
 demo_output/
 demo/
-webapp/
+# webapp/
 test*.jpg
 assets/demo_images/*
 !assets/demo_images/.gitkeep

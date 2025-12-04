@@ -1,0 +1,632 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Neural BUS - Interactive Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            color: #333;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            text-align: center;
+            color: white;
+            padding: 30px 0;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        .bus-icon {
+            font-size: 1.2em;
+        }
+
+        .tagline {
+            font-size: 1.1em;
+            opacity: 0.9;
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .panel {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+
+        .panel-title {
+            font-size: 1.3em;
+            margin-bottom: 20px;
+            color: #667eea;
+            font-weight: 600;
+        }
+
+        .upload-area {
+            border: 3px dashed #ddd;
+            border-radius: 10px;
+            padding: 40px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        .upload-area:hover {
+            border-color: #667eea;
+            background: #f0f3ff;
+        }
+
+        .upload-area.dragover {
+            border-color: #667eea;
+            background: #e8edff;
+        }
+
+        #imagePreview {
+            max-width: 100%;
+            max-height: 300px;
+            margin: 20px auto;
+            display: none;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .question-input {
+            width: 100%;
+            padding: 15px;
+            font-size: 1.1em;
+            border: 2px solid #e0e0e0;
+            border-radius: 10px;
+            margin: 15px 0;
+            transition: border-color 0.3s;
+        }
+
+        .question-input:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+
+        .preset-questions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin: 15px 0;
+        }
+
+        .preset-btn {
+            padding: 8px 15px;
+            background: #f0f3ff;
+            border: 1px solid #667eea;
+            border-radius: 20px;
+            color: #667eea;
+            cursor: pointer;
+            transition: all 0.3s;
+            font-size: 0.9em;
+        }
+
+        .preset-btn:hover {
+            background: #667eea;
+            color: white;
+        }
+
+        .process-btn {
+            width: 100%;
+            padding: 15px 30px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            border-radius: 10px;
+            font-size: 1.2em;
+            font-weight: 600;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .process-btn:hover {
+            transform: translateY(-2px);
+        }
+
+        .process-btn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .pipeline-visualization {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .pipeline-steps {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .step {
+            text-align: center;
+            flex: 1;
+            position: relative;
+            padding: 10px;
+        }
+
+        .step-icon {
+            width: 60px;
+            height: 60px;
+            background: #e0e0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 10px;
+            font-size: 24px;
+            transition: all 0.3s;
+        }
+
+        .step.active .step-icon {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            animation: pulse 1.5s infinite;
+        }
+
+        .step.complete .step-icon {
+            background: #4caf50;
+            color: white;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        .step-arrow {
+            position: absolute;
+            top: 30px;
+            right: -20px;
+            color: #ddd;
+            font-size: 20px;
+        }
+
+        .bus-packet-view {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            font-family: 'Courier New', monospace;
+            white-space: pre-wrap;
+            font-size: 0.9em;
+            max-height: 400px;
+            overflow-y: auto;
+        }
+
+        .result-panel {
+            background: #e8f5e9;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+        }
+
+        .answer-text {
+            font-size: 1.2em;
+            color: #2e7d32;
+            margin: 10px 0;
+            font-weight: 600;
+        }
+
+        .metrics {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .metric {
+            text-align: center;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+        }
+
+        .metric-value {
+            font-size: 1.8em;
+            font-weight: bold;
+            color: #667eea;
+        }
+
+        .metric-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 5px;
+        }
+
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .loading.active {
+            display: block;
+        }
+
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .examples-strip {
+            display: flex;
+            gap: 15px;
+            padding: 15px;
+            background: white;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+        }
+
+        .example-card {
+            min-width: 120px;
+            text-align: center;
+            cursor: pointer;
+            transition: transform 0.3s;
+        }
+
+        .example-card:hover {
+            transform: scale(1.05);
+        }
+
+        .example-card img {
+            width: 100%;
+            height: 80px;
+            object-fit: cover;
+            border-radius: 5px;
+        }
+
+        .example-card p {
+            margin-top: 5px;
+            font-size: 0.85em;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .metrics {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>
+                <span class="bus-icon">🚌</span>
+                Neural BUS Interactive Demo
+            </h1>
+            <p class="tagline">Experience AI models communicating through standardized protocols</p>
+        </header>
+
+        <!-- Examples Strip -->
+        <div class="examples-strip" id="examplesStrip">
+            <div class="example-card" onclick="loadExample(1)">
+                <img src="/assets/demo/lounge.jpg" alt="Example 1">
+                <p>Living Room</p>
+            </div>
+            <div class="example-card" onclick="loadExample(2)">
+                <img src="/assets/demo/park.webp" alt="Example 2">
+                <p>Dog in Park</p>
+            </div>
+            <div class="example-card" onclick="loadExample(3)">
+                <img src="/assets/demo/streets.jpeg" alt="Example 3">
+                <p>Street Scene</p>
+            </div>
+        </div>
+
+        <div class="demo-grid">
+            <!-- Left Panel: Input -->
+            <div class="panel">
+                <h2 class="panel-title">📸 Input</h2>
+                
+                <div class="upload-area" id="uploadArea">
+                    <p style="font-size: 50px; margin-bottom: 10px;">📤</p>
+                    <p style="font-weight: 600;">Drop an image here or click to upload</p>
+                    <p style="color: #999; font-size: 0.9em; margin-top: 5px;">Supports JPG, PNG (Max 5MB)</p>
+                    <input type="file" id="fileInput" accept="image/*" style="display: none;">
+                </div>
+                
+                <img id="imagePreview" alt="Preview">
+                
+                <div style="margin-top: 20px;">
+                    <label style="font-weight: 600; color: #666;">Ask a question about the image:</label>
+                    <input type="text" class="question-input" id="questionInput" 
+                           placeholder="What is in the image?" 
+                           value="What is in the image?">
+                    
+                    <div class="preset-questions">
+                        <button class="preset-btn" onclick="setQuestion('What is in the image?')">What is this?</button>
+                        <button class="preset-btn" onclick="setQuestion('What color is the main object?')">Colors</button>
+                        <button class="preset-btn" onclick="setQuestion('How many objects are visible?')">Count</button>
+                        <button class="preset-btn" onclick="setQuestion('Is this indoor or outdoor?')">Location</button>
+                    </div>
+                </div>
+                
+                <button class="process-btn" id="processBtn" onclick="processImage()">
+                    🚀 Process with Neural BUS
+                </button>
+            </div>
+
+            <!-- Right Panel: Pipeline & Results -->
+            <div class="panel">
+                <h2 class="panel-title">⚡ Neural BUS Pipeline</h2>
+                
+                <!-- Pipeline Visualization -->
+                <div class="pipeline-visualization">
+                    <div class="pipeline-steps">
+                        <div class="step" id="step1">
+                            <div class="step-icon">📸</div>
+                            <p>Image</p>
+                            <span class="step-arrow">→</span>
+                        </div>
+                        <div class="step" id="step2">
+                            <div class="step-icon">👁️</div>
+                            <p>Vision</p>
+                            <span class="step-arrow">→</span>
+                        </div>
+                        <div class="step" id="step3">
+                            <div class="step-icon">🚌</div>
+                            <p>BUS</p>
+                            <span class="step-arrow">→</span>
+                        </div>
+                        <div class="step" id="step4">
+                            <div class="step-icon">🧠</div>
+                            <p>LLM</p>
+                            <span class="step-arrow">→</span>
+                        </div>
+                        <div class="step" id="step5">
+                            <div class="step-icon">💬</div>
+                            <p>Answer</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Loading Indicator -->
+                <div class="loading" id="loading">
+                    <div class="spinner"></div>
+                    <p style="margin-top: 10px; color: #666;">Processing through Neural BUS...</p>
+                </div>
+
+                <!-- Results -->
+                <div id="results" style="display: none;">
+                    <div class="result-panel">
+                        <h3 style="color: #2e7d32; margin-bottom: 10px;">📝 Answer</h3>
+                        <p class="answer-text" id="answerText"></p>
+                    </div>
+
+                    <div class="metrics">
+                        <div class="metric">
+                            <div class="metric-value" id="confidenceValue">-</div>
+                            <div class="metric-label">Confidence</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="timeValue">-</div>
+                            <div class="metric-label">Time (ms)</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value" id="similarityValue">-</div>
+                            <div class="metric-label">Consistency</div>
+                        </div>
+                    </div>
+
+                    <details>
+                        <summary style="cursor: pointer; font-weight: 600; color: #667eea; margin: 15px 0;">
+                            🔍 View BUS Packet Details
+                        </summary>
+                        <div class="bus-packet-view" id="busPacketView"></div>
+                    </details>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // File upload handling
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const imagePreview = document.getElementById('imagePreview');
+        const questionInput = document.getElementById('questionInput');
+        let currentImage = null;
+
+        uploadArea.addEventListener('click', () => fileInput.click());
+
+        uploadArea.addEventListener('dragover', (e) => {
+            e.preventDefault();
+            uploadArea.classList.add('dragover');
+        });
+
+        uploadArea.addEventListener('dragleave', () => {
+            uploadArea.classList.remove('dragover');
+        });
+
+        uploadArea.addEventListener('drop', (e) => {
+            e.preventDefault();
+            uploadArea.classList.remove('dragover');
+            handleFile(e.dataTransfer.files[0]);
+        });
+
+        fileInput.addEventListener('change', (e) => {
+            handleFile(e.target.files[0]);
+        });
+
+        function handleFile(file) {
+            if (file && file.type.startsWith('image/')) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    currentImage = e.target.result;
+                    imagePreview.src = currentImage;
+                    imagePreview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        function setQuestion(question) {
+            questionInput.value = question;
+        }
+
+        function loadExample(id) {
+            // In real implementation, fetch example from server
+            const exampleMap = {
+                1: "/assets/demo/lounge.jpg",
+                2: "/assets/demo/park.webp",
+                3: "/assets/demo/streets.jpeg"
+            }
+            if (exampleMap[id]) {
+                currentImage = exampleMap[id];
+                imagePreview.src = currentImage;
+                imagePreview.style.display = 'block';
+
+                // Set a relevant question
+                const exampleQuestions = {
+                    1: "What room is this?",
+                    2: "What animal is in the image?",
+                    3: "What type of scene is this?"
+                };
+                questionInput.value = exampleQuestions[id] || "What is in the image?";
+            } else {
+                alert("Example not found!");
+    }
+        }
+
+        function animatePipeline() {
+            const steps = ['step1', 'step2', 'step3', 'step4', 'step5'];
+            steps.forEach(id => {
+                document.getElementById(id).classList.remove('active', 'complete');
+            });
+
+            let currentStep = 0;
+            const interval = setInterval(() => {
+                if (currentStep > 0) {
+                    document.getElementById(steps[currentStep - 1]).classList.remove('active');
+                    document.getElementById(steps[currentStep - 1]).classList.add('complete');
+                }
+                
+                if (currentStep < steps.length) {
+                    document.getElementById(steps[currentStep]).classList.add('active');
+                    currentStep++;
+                } else {
+                    clearInterval(interval);
+                    document.getElementById(steps[steps.length - 1]).classList.remove('active');
+                    document.getElementById(steps[steps.length - 1]).classList.add('complete');
+                }
+            }, 500);
+        }
+
+        async function processImage() {
+            if (!currentImage) {
+                alert('Please upload an image first!');
+                return;
+            }
+
+            const processBtn = document.getElementById('processBtn');
+            const loading = document.getElementById('loading');
+            const results = document.getElementById('results');
+            
+            processBtn.disabled = true;
+            loading.classList.add('active');
+            results.style.display = 'none';
+            
+            animatePipeline();
+
+            try {
+                const response = await fetch('/api/process', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        image: currentImage,
+                        question: questionInput.value
+                    })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    displayResults(data.result);
+                } else {
+                    alert('Error: ' + data.error);
+                }
+            } catch (error) {
+                alert('Failed to process image: ' + error);
+            } finally {
+                processBtn.disabled = false;
+                loading.classList.remove('active');
+            }
+        }
+
+        function displayResults(result) {
+            const results = document.getElementById('results');
+            
+            // Display answer
+            document.getElementById('answerText').textContent = result.answer;
+            
+            // Display metrics
+            document.getElementById('confidenceValue').textContent = 
+                (result.confidence * 100).toFixed(1) + '%';
+            document.getElementById('timeValue').textContent = 
+                (result.inference_time * 1000).toFixed(0);
+            document.getElementById('similarityValue').textContent = 
+                result.cycle_similarity.toFixed(2);
+            
+            // Display BUS packet
+            const busPacketView = document.getElementById('busPacketView');
+            busPacketView.textContent = JSON.stringify(result.bus_packet, null, 2);
+            
+            results.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
