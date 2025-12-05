@@ -1,7 +1,0 @@
-flask
-flask-cors
-transformers
-torch        # if needed
-Pillow
-gunicorn
-# plus whatever else you already have

@@ -18,6 +18,7 @@ Render:
 
 import base64
 import io
+import os
 import sys
 import time
 from pathlib import Path
@@ -253,4 +254,6 @@ load_model()
 
 if __name__ == "__main__":
     # Local development: `python app.py`
-    app.run(host="0.0.0.0", port=5001, debug=False)
+    # Use PORT from environment if available (for cloud platforms)
+    port = int(os.environ.get("PORT", 5001))
+    app.run(host="0.0.0.0", port=port, debug=False)
